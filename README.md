@@ -1,2 +1,2 @@
 # wedding_planner
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy.
