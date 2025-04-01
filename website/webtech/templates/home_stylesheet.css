@@ -1,5 +1,5 @@
 h1 {
-    font-family: 'calibri';
+    font-family: 'Times New Roman';
 }
 
 h3 {
@@ -8,15 +8,19 @@ h3 {
 }
 
 p {
-    font-family: 'calibri';
+    font-family: 'helvetica';
 }
-.container {
+.container-fluid {
     background: #ffece1;
-    display: block;
-    width: 100%; /* Full width of the page */
-    /* Remove height: 100vh; to allow height to be determined by content */
 }
 
+.nav-link {
+    color: #6E403D;
+}
+
+.navbar {
+    margin: 0; 
+    padding: 0;}
 
 .eerste-div{
     background:#6E403D;
@@ -26,4 +30,53 @@ p {
     width: 100%; 
     height: auto; 
     display: block; 
+}
+
+
+.tweede-div{
+    background:#ffece1;
+    padding: 20px; /* Optional: Add some padding */
+}
+
+.tweede-div img {
+    max-width: 100%; 
+    height: auto; 
+    margin-right: 15px; /* This can be removed since we are using Flexbox */
+}
+
+.responsive-image {
+    width: 100%; 
+    height: auto; 
+}
+
+.responsive-image {
+    width: 100%; 
+    height: auto; 
+}
+
+
+@media (min-width: 768px) {
+    .responsive-image {
+        width: 50%; 
+    }
+}
+
+@media (min-width: 992px) {
+    .responsive-image {
+        width: 33.33%; 
+    }
+}
+
+.custom-button {
+    background-color: #6E403D; 
+    color: white; 
+    border: none; 
+    font-family: 'helvetica';
+}
+
+.custom-button:hover {
+    background-color: white; 
+    color: #6E403D;
+    border: #6E403D;
+    font-family: 'helvetica';
 }
