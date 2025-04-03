@@ -27,7 +27,7 @@ p {
 }
 
 .eerste-div img {
-    width: 100%; 
+    max-width: auto; 
     height: auto; 
     display: block; 
 }
@@ -35,13 +35,13 @@ p {
 
 .tweede-div{
     background:#ffece1;
-    padding: 20px; /* Optional: Add some padding */
+    padding: 20px; 
 }
 
 .tweede-div img {
     max-width: 100%; 
     height: auto; 
-    margin-right: 15px; /* This can be removed since we are using Flexbox */
+    margin-right: 15px; 
 }
 
 .responsive-image {
