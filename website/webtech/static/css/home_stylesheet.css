@@ -41,7 +41,10 @@ p {
 
 .tweede-div {
     background-image:url("weddinggirl1.jpeg");
-    padding: 20px; 
+    background-size: cover;
+    
+    
+    height: auto;
 }
 
 
