@@ -42,9 +42,23 @@ p {
 .tweede-div {
     background-image:url("weddinggirl1.jpeg");
     background-size: cover;
-    
-    
     height: auto;
+    position: relative;
+    text-align: left;
+    color: white;
+}
+
+.tweede-div img {
+    width: 100%;
+    height: auto;
+}
+
+.tweede-div .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 
