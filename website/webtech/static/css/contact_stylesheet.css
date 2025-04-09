@@ -1,0 +1,21 @@
+
+.container-fluid {
+    background: #ffece1;
+}
+
+.nav-link {
+    color: #6E403D;
+}
+
+.navbar {
+    margin: 0; 
+    padding: 0;
+}
+
+.nav-link{
+   font-size: 20px; 
+}
+
+.contactForm{
+    padding: 15px;
+}
