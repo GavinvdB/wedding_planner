@@ -32,10 +32,12 @@ p {
 }
 
 .eerste-div img {
-    max-width: auto; 
-    height: auto; 
-    display: block; 
-    margin: auto;
+    max-width: 100%; /* Ensure the image doesn't exceed its container width */
+    height: auto; /* Maintain the aspect ratio */
+    display: block; /* Prevent inline spacing issues */
+    margin: 0 auto; /* Center the image horizontally */
+    max-height: 300px; /* Optional: Limit the height */
+    object-fit: contain; /* Ensure the image fits without distortion */
 }
 
 
@@ -92,6 +94,11 @@ p {
     height: auto; 
 }
 
+/* General styles for images */
+.responsive-image {
+    width: 100%; 
+    height: auto; 
+}
 
 @media (min-width: 768px) {
     .responsive-image {
@@ -117,5 +124,38 @@ p {
     color: #6E403D;
     border: #6E403D;
     font-family: 'helvetica';
+}
+
+/* Adjust text and image alignment for smaller screens */
+@media (max-width: 768px) {
+    .derde-div h1 {
+        font-size: 24px; /* Smaller font size for headings */
+    }
+
+    .derde-div p {
+        font-size: 16px; /* Smaller font size for paragraphs */
+    }
+
+    .btn.custom-button {
+        font-size: 14px; /* Adjust button size */
+    }
+}
+
+/* Adjust the tweede-div overlay text for smaller screens */
+@media (max-width: 768px) {
+    .tweede-div .overlay-text {
+        top: 20%; /* Move text higher for smaller screens */
+        left: 5%; /* Adjust left margin */
+        transform: translate(0, 0); /* Remove centering */
+        text-align: left; /* Align text to the left */
+    }
+
+    .tweede-div h1 {
+        font-size: 36px; /* Smaller font size for headings */
+    }
+
+    .tweede-div p {
+        font-size: 14px; /* Smaller font size for paragraphs */
+    }
 }
 
