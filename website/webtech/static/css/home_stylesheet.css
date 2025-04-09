@@ -39,13 +39,19 @@ p {
 }
 
 
-.tweede-div{
+.tweede-div {
+    background-image:url("weddinggirl1.jpeg");
+    padding: 20px; 
+}
+
+
+.derde-div {
     background:#ffece1;
     padding: 20px; 
 }
 
-.tweede-div img {
-    max-width: 100%; 
+.derde-div img {
+    max-width: 80%; 
     height: auto; 
     margin-right: 15px; 
 }
