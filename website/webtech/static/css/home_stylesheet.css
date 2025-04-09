@@ -55,12 +55,21 @@ p {
 
 .tweede-div .overlay-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 30%;
+    left: 35%;
     transform: translate(-50%, -50%);
-    text-align: center;
+
 }
 
+.tweede-div h1 {
+    font-size: 300px;
+    color: white;
+}
+
+.tweede-div p {
+    font-size: 20px;
+    color: white;
+}
 
 .derde-div {
     background:#ffece1;
