@@ -1,0 +1,45 @@
+.container-fluid {
+    background: #ffece1;
+}
+
+.nav-link {
+    color: #6E403D;
+}
+
+.navbar {
+    margin: 0; 
+    padding: 0;
+}
+
+.nav-link{
+   font-size: 20px; 
+}
+
+.contactForm{
+    padding: 15px;
+}
+
+.services-row {
+    display: flex;
+    justify-content: space-between; 
+    gap: 20px; 
+    padding: 20px;
+}
+
+.service {
+    flex: 1; 
+    padding: 10px;
+    background-color: #ffece1; 
+    box-sizing: border-box; 
+}
+
+@media (max-width: 768px) {
+    .services-row {
+        flex-direction: column; 
+    }
+
+    .service {
+        margin-bottom: 20px; 
+    }
+}
+
