@@ -24,10 +24,10 @@ def home1():
     #Homepagina/Over ons/nav bar naar andere paginas.
     return render_template("home.html")
 
-@app.route("/diensten")   
+@app.route("/services")   
 def diensten():
     #Dienstenpagina (wat leveren ze, link naar contactpagina)
-    return render_template("diensten.html") 
+    return render_template("services.html") 
 
 @app.route("/contact", methods=['GET', 'POST']) 
 def contact():

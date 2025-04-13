@@ -55,15 +55,21 @@
 }
 
 .eerste-div h1{
-    padding-left: 40px;
+    padding-left: 0; 
+    text-align: center; 
+    color: white;
+    font-family: 'Times New Roman';
+    font-size: 3rem; 
 }
 
 h1{
     color:white;
+    font-family: 'Times New Roman';
 }
 
 h2{
-    color:white
+    color:white;
+    font-family: 'Times New Roman';
 
 }
 
@@ -119,3 +125,7 @@ p{
     text-align: center;
 }
 
+.eerste-div img{
+    
+
+}
