@@ -75,3 +75,47 @@ p{
 .col-md-4{
     padding-left: 40px;
 }
+
+.footer-div {
+    background-color: #ffece1;
+    color: #6E403D;
+    padding: 20px 0; 
+}
+
+.footer-div h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-div p, .footer-div a {
+    font-size: 14px;
+    color: #6E403D;
+    text-decoration: none;
+}
+
+.footer-div a:hover {
+    text-decoration: underline;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 5px;
+}
+
+.footer-links a {
+    color: #6E403D;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.text-center {
+    text-align: center;
+}
+
