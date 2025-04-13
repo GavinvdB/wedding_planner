@@ -24,9 +24,6 @@ def home1():
     #Homepagina/Over ons/nav bar naar andere paginas.
     return render_template("home.html")
 
-
-
-
 @app.route("/diensten")   
 def diensten():
     #Dienstenpagina (wat leveren ze, link naar contactpagina)

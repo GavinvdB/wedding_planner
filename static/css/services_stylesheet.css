@@ -43,3 +43,35 @@
     }
 }
 
+.eerste-div{
+    background-color: #6E403D;
+    
+
+}
+
+.eerste-div img{
+    size: 60%
+
+}
+
+.eerste-div h1{
+    padding-left: 40px;
+}
+
+h1{
+    color:white;
+}
+
+h2{
+    color:white
+
+}
+
+p{
+    color:white
+
+}
+
+.col-md-4{
+    padding-left: 40px;
+}
