@@ -77,12 +77,9 @@ p {
 }
 
 .derde-div {
-    background:#ffece1;
-    padding: 20px; 
-    box-sizing: width-box;
-    width: 100%;
-    margin: 0;
-
+    background-color:#ffece1; /* or any color that matches your design */
+    padding: 40px 0; /* Add proper vertical padding */
+    margin: 0; /* Remove any default margins */
 }
 
 .derde-div img {
@@ -90,6 +87,30 @@ p {
     height: auto; 
     display: block;
     
+}
+
+.derde-div .responsive-image {
+    width: 100%; /* Make the image responsive */
+    max-width: 400px; /* Set maximum size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image */
+}
+
+.derde-div .row {
+    margin: 0; /* Remove default row margins */
+}
+
+.derde-div .col-md-6 {
+    padding: 15px 20px; /* Add consistent padding */
+}
+
+.derde-div h1 {
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 20px; /* Add consistent bottom margin */
+}
+
+.derde-div p {
+    margin-bottom: 15px; /* Consistent paragraph spacing */
 }
 
 html, body {
@@ -144,6 +165,45 @@ html, body {
         font-size: 14px; 
     }
 }
+
+.vierde-div{
+    background-color: #6E403D;
+    padding: 20px;
+    
+
+}
+
+.vierde-div img{
+    size: 60%
+
+}
+
+.vierde-div h1{
+    padding-left: 0; 
+    text-align: center; 
+    color: white;
+    font-family: 'Times New Roman';
+    font-size: 3rem; 
+}
+
+.vierde-div p
+{
+    color: white;
+    font-family: 'Times New Roman';
+    
+}
+
+h2{
+    color:white;
+    font-family: 'Times New Roman';
+
+}
+
+
+.col-md-4{
+    padding-left: 40px;
+}
+
 
 .footer-div {
     background-color: #6E403D;

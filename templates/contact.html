@@ -32,6 +32,9 @@
         </div>
     </nav>
     
+    <div class ="eerste-div"> 
+        <img src="../static/images/weddinggirl1.jpg" alt="Wedding Girl">
+        <div class="overlay-text">
     <h1>Contactformulier</h1>
     
         {% if voornaam %}
@@ -39,20 +42,20 @@
             <br>
             <p>U krijgt zo snel mogelijk antwoord.</p>
         {% else %}
-            <form  method="POST">
+            <form  method="POST" class="contact-form">
             {{ form.hidden_tag() }}
             {{ form.voornaam.label }} {{form.voornaam}}
-            <br><br>
+            <br>
             {{ form.achternaam.label }} {{form.achternaam}}
-            <br><br>
+            <br>
             {{form.gender.label}}{{form.gender}}
-            <br><br>
+            <br>
             {{form.telefoon.label}}{{form.telefoon}}
-            <br><br>
+            <br>
             {{ form.email.label }} {{form.email}}
-            <br><br>
+            <br>
             {{ form.tekst.label }} {{form.tekst}}
-            <br><br>
+            <br>
             {{ form.checkbox.label }} {{form.checkbox}}
 
             <br>
@@ -60,6 +63,33 @@
             {{ form.submit() }}
             </form>
         {% endif %}
+    </div>
+    </div>
+
+        <div class="footer-div">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="../static/images/Roze mono.png" alt="logo mono" class="responsive-image" width="120" height="120">
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Contact Info</h4>
+                        <p>Email: info@weddingplanner.com</p>
+                        <p>Telefoon: +31 6 12345678</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>Volg Ons</h4>
+                        <a href="https://facebook.com" target="_blank">Facebook</a><br>
+                        <a href="https://instagram.com" target="_blank">Instagram</a><br>
+                        <a href="https://twitter.com" target="_blank">Twitter</a>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <p>&copy; 2025 Blooming Days. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+        
     
 </body>
 </html>
