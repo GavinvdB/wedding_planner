@@ -80,8 +80,9 @@
 }
 
 .overlay-text form textarea {
-    height: 80px; 
 
+    height: 80px; 
+}
 .overlay-text form input[type="submit"] {
     background-color: #6E403D;
     color: white;
