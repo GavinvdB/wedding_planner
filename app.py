@@ -12,6 +12,7 @@ from flask_login import login_user, login_required, logout_user
 from BloomingDays.models import User
 from BloomingDays.forms import LoginForm, RegistrationForm
 import email_validator
+from flask_migrate import Migrate
 
 
 class ContactDatabase(db.Model):
@@ -161,9 +162,12 @@ def create_tables():
     db.create_all()
     print("Database tables created!")
 
+Migrate(app, db)
+
 if __name__ == "__main__":
     with app.app_context():
         create_tables()
         db.create_all()  # Create tables when app starts
     app.run(debug=True)
 
+#routes moeten naar viewwwwww!!!
