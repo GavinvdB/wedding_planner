@@ -12,6 +12,8 @@ app = Flask(__name__,
             template_folder=templates_dir, 
             static_folder=static_dir)
 
+
+
 # Configure the database
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SECRET_KEY'] = 'mysecretkey'
@@ -24,3 +26,8 @@ db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+
+from BloomingDays.admin.views import admin_blueprint 
+from BloomingDays.user.views import user_blueprint
+app.register_blueprint(admin_blueprint,url_prefix="/admin")
+app.register_blueprint(user_blueprint,url_prefix='/user')

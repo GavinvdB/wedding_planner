@@ -1,8 +1,10 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo
 from wtforms import ValidationError
-from BloomingDays.models import User
+from wtforms import (StringField, SelectField, TextAreaField, 
+                     BooleanField, SubmitField, TelField, 
+                     EmailField, PasswordField)
+from BloomingDays.admin.models import User
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -25,3 +27,14 @@ class RegistrationForm(FlaskForm):
         # Check of de gebruikersnaam nog niet vergeven is!
         if User.query.filter_by(username=field.data).first():
             raise ValidationError('Deze gebruikersnaam wordt al gebruikt, kies een andere gebruikersnaam.')
+        
+class ContactForm(FlaskForm):
+
+    voornaam = StringField('Wat is uw voornaam?',validators=[DataRequired()])
+    achternaam = StringField('Wat is uw achternaam?',validators=[DataRequired()])
+    gender  = SelectField('Wat is uw geslacht?', choices=[('M','Man'),('V','Vrouw'),('O','Anders/Zeg liever niet'),],validators=[DataRequired()])
+    telefoon = TelField('Wat is uw telefoonnummer?',validators=[DataRequired()])
+    email = EmailField('Wat is uw Emailadres?',validators=[DataRequired()])
+    tekst = TextAreaField()
+    checkbox = BooleanField("Wil je een nieuwsbrief krijgen?")
+    submit = SubmitField('Verzend')

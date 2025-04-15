@@ -23,6 +23,29 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
     
+class ContactDatabase(db.Model):
+    
+    __tablename__ = "Contacten"
+    id = db.Column(db.Integer,primary_key=True)
+    voornaam = db.Column(db.Text)
+    achternaam = db.Column(db.Text)
+    gender = db.Column(db.Text)
+    telefoon = db.Column(db.Text)
+    email = db.Column(db.Text)
+    tekst = db.Column(db.Text)
+    
+
+    def __init__(self,voornaam,achternaam,gender,telefoon,email,tekst):
+        self.voornaam = voornaam
+        self.achternaam = achternaam
+        self.gender = gender
+        self.telefoon = telefoon
+        self.email = email
+        self.tekst = tekst
+    
+    def __repr__(self):
+        return f"{self.voornaam} {self.achternaam} heeft dit gestuurd: {self.tekst}"
+    
 def init_db():
     db.create_all()
     
