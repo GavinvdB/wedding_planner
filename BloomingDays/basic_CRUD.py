@@ -1,2 +1,2 @@
-from home import db, ContactDatabase
+from app import db, ContactDatabase
 

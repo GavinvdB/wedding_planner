@@ -1,25 +1,26 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 from flask_login import LoginManager
 
-# Maak een object LoginManager() aan
-login_manager = LoginManager()
+# Get absolute path to the project root
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+templates_dir = os.path.join(project_root, 'templates')
+static_dir = os.path.join(project_root, 'static')
 
-app = Flask(__name__)
+app = Flask(__name__, 
+            template_folder=templates_dir, 
+            static_folder=static_dir)
 
-# Vaak worden deze coderegels in een apart config.py-bestand ondergebracht
-app.config['SECRET_KEY'] = 'mijngeheimesleutel'
+# Configure the database
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+app.config['SECRET_KEY'] = 'mysecretkey'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, '../data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-Migrate(app, db)
 
-# De app wordt bekend gemaakt bij de Loginmanager
+# Configure login
+login_manager = LoginManager()
 login_manager.init_app(app)
-
-# Hier wordt duideljk gemaakt welke view verantwoordelijk is voor het inloggen
-login_manager.login_view = "login"
+login_manager.login_view = 'login'

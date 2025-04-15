@@ -1,5 +1,6 @@
 import os
-from __init__ import app, db
+import sys
+from BloomingDays import app, db, login_manager
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, redirect, url_for, session, flash, request
 from flask_wtf import FlaskForm
@@ -56,14 +57,19 @@ def home1():
 @app.route('/welkom')
 @login_required
 def welkom():
-    return render_template('welkom.html')
+    try:
+        return render_template('welkom.html')
+    except Exception as e:
+        flash(f"Error rendering template: {str(e)}")
+        print(f"Template error: {str(e)}")
+        return redirect(url_for('home1'))
 
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     flash('Je bent nu uitgelogd!')
-    return redirect(url_for('home'))
+    return redirect(url_for('home1')) 
 
 @app.route("/services")   
 def diensten():
@@ -72,7 +78,6 @@ def diensten():
 
 @app.route("/contact", methods=['GET', 'POST']) 
 def contact():
-    #contactpagina (contactmogelijk + afspraken maken)
     form = ContactForm()
 
     if form.validate_on_submit():
@@ -83,25 +88,53 @@ def contact():
         session['email'] = form.email.data
         session['tekst'] = form.tekst.data
         session['checkbox'] = form.checkbox.data
+        
+        contact = ContactDatabase(
+            voornaam=form.voornaam.data,
+            achternaam=form.achternaam.data,
+            gender=form.gender.data,
+            telefoon=form.telefoon.data,
+            email=form.email.data,
+            tekst=form.tekst.data
+        )
+        db.session.add(contact)
+        db.session.commit()
+        
+        flash('Bedankt voor je bericht! We nemen contact met je op.')
+        return redirect(url_for('home1'))  
+        
     return render_template("contact.html", form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login(): 
-    #loginpagina voor databases
     form = LoginForm()
+    print(f"Form submitted: {request.method == 'POST'}")
+    
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-
-        if user.check_password(form.password.data) and user is not None:
+        print(f"User found: {user is not None}")
+        
+        if user is not None:
+            print(f"Password check result: {user.check_password(form.password.data)}")
+        
+        if user is not None and user.check_password(form.password.data):
             login_user(user)
+            print("User logged in successfully")
             flash('Succesvol ingelogd.')
-
-            next = request.args.get('next')
-
-            if next == None or not next[0]=='/':
-                next = url_for('welkom')
             
-            return redirect(next)
+            next_page = request.args.get('next')
+            if not next_page or not next_page.startswith('/'):
+                next_page = url_for('welkom')
+                
+            print(f"Redirecting to: {next_page}")
+            return redirect(next_page)
+        else:
+            print("Invalid credentials")
+            flash('Ongeldige email of wachtwoord.')
+    else:
+        if form.errors:
+            print(f"Form validation errors: {form.errors}")
+    
     return render_template('login.html', form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -117,8 +150,20 @@ def register():
         db.session.commit()
         flash('Dank voor de registratie. Er kan nu ingelogd worden! ')
         return redirect(url_for('login'))
-    return render_template('register.html', form=form)    
+    return render_template('register.html', form=form)
+
+@app.route('/test-redirect')
+def test_redirect():
+    return redirect(url_for('welkom'))
+
+# Database initialization
+def create_tables():
+    db.create_all()
+    print("Database tables created!")
 
 if __name__ == "__main__":
+    with app.app_context():
+        create_tables()
+        db.create_all()  # Create tables when app starts
     app.run(debug=True)
 
