@@ -1,2 +1,0 @@
-$placeholder-opacity-max:           .5;
-$placeholder-opacity-min:           .2;

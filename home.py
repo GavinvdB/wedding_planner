@@ -8,8 +8,8 @@ from wtforms import (StringField, SelectField, TextAreaField,
                      EmailField)
 from wtforms.validators import DataRequired, Email
 from flask_login import login_user, login_required, logout_user
-from models import User
-from forms import LoginForm, RegistrationForm
+from BloomingDays.models import User
+from BloomingDays.forms import LoginForm, RegistrationForm
 import email_validator
 
 
