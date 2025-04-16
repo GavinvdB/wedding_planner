@@ -48,7 +48,7 @@ def login():
     print(f"Form submitted: {request.method == 'POST'}")
     
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
+        user = User.query.filter_by(username=form.username.data).first()
         print(f"User found: {user is not None}")
         
         if user is not None:
@@ -79,13 +79,39 @@ def register():
     form = RegistrationForm()
 
     if form.validate_on_submit():
+        # Check if passwords match
+        if form.password.data != form.pass_confirm.data:
+            flash('Wachtwoorden komen niet overeen.', 'danger')
+            return render_template('register.html', form=form)
+   
+        existing_email = User.query.filter_by(email=form.email.data).first()
+        if existing_email:
+            flash('Dit e-mailadres is al geregistreerd.', 'danger')
+            return render_template('register.html', form=form)
+            
+        existing_username = User.query.filter_by(username=form.username.data).first()
+        if existing_username:
+            flash('Deze gebruikersnaam is al in gebruik.', 'danger')
+            return render_template('register.html', form=form)
+        
         user = User(email=form.email.data,
                     username=form.username.data,
                     password=form.password.data)
 
-        db.session.add(user)
-        db.session.commit()
-        flash('Dank voor de registratie. Er kan nu ingelogd worden! ')
-        return redirect(url_for('admin.login'))
+        try:
+            db.session.add(user)
+            db.session.commit()
+            flash('Dank voor de registratie. Er kan nu ingelogd worden!', 'success')
+            return redirect(url_for('user.login'))
+        except Exception as e:
+            db.session.rollback()
+            flash('Er is een fout opgetreden bij het registreren. Probeer het opnieuw.', 'danger')
+            print(f"Database error: {str(e)}")
+    else:
+        # Display form validation errors
+        for field, errors in form.errors.items():
+            for error in errors:
+                flash(f"{getattr(form, field).label.text}: {error}", 'danger')
+            
     return render_template('register.html', form=form)
 

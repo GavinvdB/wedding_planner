@@ -7,15 +7,15 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="eerste-div"> 
     <div class="overlay-text">
-        <div class="form-container">
+
         <h1>Login</h1>
-        
             <form method="POST" class="contact-form">
                 {{ form.hidden_tag() }}
                 <div class="form-field">
-                    {{ form.email.label(class="form-label") }} {{ form.email(class="form-input") }}
+                    {{ form.username.label(class="form-label") }} {{ form.username(class="form-input") }}
                 </div>
                 <div class="form-field">
                     {{ form.password.label(class="form-label") }} {{ form.password(class="form-input") }}
@@ -27,7 +27,7 @@
                     <p>Nog geen account? <a href="{{ url_for('user.register') }}">Registreer hier</a></p>
                 </div>
             </form>
-        </div>
+
     </div>
 </div>
 {% endblock %}

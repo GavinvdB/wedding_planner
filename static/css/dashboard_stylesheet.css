@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: var(--light);
+    background-color: var(--text-light);
     color: var(--text-dark);
     font-family: 'Montserrat', 'Arial', sans-serif;
 }

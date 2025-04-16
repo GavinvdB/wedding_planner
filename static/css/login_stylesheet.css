@@ -29,28 +29,34 @@
     object-fit: contain; 
 }
 
-
 .overlay-text {
     position: relative !important; 
     max-width: 600px;
     width: 90%;              
     margin: 0 auto;           
     padding: 30px;
-    background-color: rgba(999, 999, 999, 0.4);
+    background-color: rgba(999, 999, 999, 0.8);
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
 }
+.overlay-text:before {
+    content: '';
+    display: block;
+    height: 130px;
+    margin-bottom: 20px;
+    background-image: url("../images/Rood\ sub1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
 
 .form-input[type="password"] {
     font-family: 'Arial', sans-serif;
 }
 
 
-.form-container {
-    width: 100%;
-    max-width: 500px;
-    padding: 20px 0;
-}
 
 .register-link {
     text-align: center;
@@ -115,17 +121,6 @@
 
 .submit-btn:hover {
     background-color: var(--primary-light);
-}
-
-.form-container:before {
-    content: '';
-    display: block;
-    height: 60px;
-    margin-bottom: 20px;
-    background-image: url("../images/logo-small.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
 }
 
 
