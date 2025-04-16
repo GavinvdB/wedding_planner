@@ -61,7 +61,7 @@ def login():
             
             next_page = request.args.get('next')
             if not next_page or not next_page.startswith('/'):
-                next_page = url_for('welkom')
+                next_page = url_for('admin.welkom')
                 
             print(f"Redirecting to: {next_page}")
             return redirect(next_page)
