@@ -29,7 +29,10 @@
     object-fit: contain; 
 }
 
+.eerste-div h1{
+    text-align: center;
 
+}
 .overlay-text {
     position: relative !important; 
     max-width: 600px;
@@ -39,12 +42,20 @@
     background-color: rgba(999, 999, 999, 0.4);
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
 }
 
-.form-input[type="password"] {
-    font-family: 'Arial', sans-serif;
+.form-input {
+    flex: 1;
+    max-width: 250px;
+    padding: 8px 12px;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    font-family: 'helvetica', sans-serif;
+    height: 38px; 
+    box-sizing: border-box; 
+    line-height: normal; 
 }
-
 
 .form-container {
     width: 100%;

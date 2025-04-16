@@ -87,6 +87,6 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('Dank voor de registratie. Er kan nu ingelogd worden! ')
-        return redirect(url_for('login'))
+        return redirect(url_for('admin.login'))
     return render_template('register.html', form=form)
 

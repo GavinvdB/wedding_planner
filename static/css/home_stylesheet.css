@@ -129,19 +129,21 @@ html, body {
 }
 
 .custom-button {
-    background-color: var(--primary); 
-    color: var(--text-light); 
-    border: none; 
-    font-family: 'helvetica';
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: 150px;
+    transition: background-color 0.3s;
 }
+
 
 .custom-button:hover {
-    background-color: var(--text-light); 
-    color: var(--primary);
-    border: var(--primary);
-    font-family: 'helvetica';
+    background-color: var(--primary-light);
 }
-
 
 @media (max-width: 768px) {
     .derde-div h1 {

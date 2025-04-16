@@ -35,13 +35,6 @@ p {
     text-align: center;
 }
 
-.tweede-div .overlay-text {
-    position: relative; 
-    max-width: 800px;
-    margin: 0 auto;  
-    padding: 30px;
-    border-radius: 8px;
-}
 
 .overlay-text form {
     padding: 20px;
@@ -171,17 +164,6 @@ p {
     margin-bottom: 15px;
     display: flex;
     align-items: flex-start;
-}
-
-
-.checkbox-group {
-    margin-left: 120px;
-    padding-left: 15px;
-}
-
-.checkbox-group label {
-    width: auto;
-    margin-right: 10px;
 }
 
 
