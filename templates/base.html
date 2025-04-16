@@ -36,8 +36,10 @@
                         <li><a class="dropdown-item" href="{{ url_for('user.register') }}">Register</a></li>
                         {% endif %}
                         {% if current_user.is_authenticated %}
+                        <li><a class="dropdown-item" href="{{ url_for('admin.welkom')}}">Dashboard</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{ url_for('admin.logout')}}">Logout</a></li>
+
                         {% endif %}
                     </ul>
                 </li>
