@@ -6,7 +6,7 @@
     --primary-light: #8a5452; 
     --text-dark: #333333;   
     --text-light: #ffffff;   
-    --text-extra:#36201f;
+    --text-extra: #36201f;
 }
 
 body {
@@ -18,14 +18,14 @@ body {
 .card {
     border: none;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
@@ -60,28 +60,20 @@ body {
     color: var(--text-dark);
 }
 
-
 .form-control::placeholder {
-    color:var(--accent); 
+    color: var(--accent); 
     font-style: italic;
 }
-
 
 .message-input {
     background-color: var(--light);  
     border-left: 3px solid var(--primary);
 }
 
-
 input[type="date"].form-control {
     background-color: var(--light);  
     border-left: 3px solid var(--accent);
     font-family: 'Montserrat', sans-serif;
-}
-
-
-#venue {
-    background-image: url('data:image/svg+
 }
 
 .btn-primary {
@@ -98,7 +90,6 @@ input[type="date"].form-control {
     transform: translateY(-2px);
 }
 
-
 .countdown {
     font-size: 1.5rem;
     color: var(--primary);
@@ -110,15 +101,136 @@ input[type="date"].form-control {
     border-left: 4px solid var(--primary);
 }
 
+.moodboard {
+    border: 2px dashed var(--accent);
+    padding: 15px;
+    height: 250px;
+    overflow-y: auto;
+    background-color: var(--light);
+    border-radius: 8px;
+}
 
-moodboard {
+.moodboard img {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-box {
+    border: 1px solid var(--accent);
+    padding: 15px;
+    height: 200px;
+    overflow-y: auto;
+    background-color: var(--light);
+    border-radius: 8px;
+}
+
+.message-box p {
+    padding: 10px;
+    background-color: var(--secondary);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--primary);
+}
+
+.list-group-item {
+    background-color: var(--light);
+    border-color: var(--accent);
+    color: var(--text-dark);
+    margin-bottom: 5px;
+    border-radius: 4px !important;
+    padding: 12px 15px;
+}
+
+.list-group-item:hover {
+    background-color: var(--secondary);
+}
+
+h1 {
+    color: var(--primary);
+    font-weight: 700;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    color: var(--primary);
+}
+
+.flash-messages {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    padding: 10px;
+}
+
+.alert {
+    text-align: center;
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.alert-success {
+    background-color: var(--secondary);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .countdown {
+        font-size: 1rem;
+    }
+    
+    .card-header {
+        padding: 10px 15px;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+}
+
+.task-item {
+    transition: all 0.3s ease;
+}
+
+.task-item.completed {
+    background-color: var(--light);
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.task-item.fade-out {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.task-actions {
+    opacity: 0.2;
+    transition: opacity 0.2s ease;
+}
+
+.task-item:hover .task-actions {
+    opacity: 1;
+}
+
+.timeline-input {
+    border: 1px solid var(--accent);
+    border-radius: 0.25rem;
+    padding: 1rem;
+    background-color: var(--light);
+}
+
+.moodboard {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    min-height: 150px;
+    gap: 10px;
+    margin: 20px 0;
+    min-height: 100px;
 }
 
 .moodboard-item {
@@ -127,28 +239,27 @@ moodboard {
     height: 150px;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.moodboard-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
 .moodboard-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.moodboard-item:hover img {
+    transform: scale(1.05);
 }
 
 .remove-image {
     position: absolute;
-    top: 8px;
-    right: 8px;
-    background: rgba(255,255,255,0.8);
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 255, 255, 0.7);
     border: none;
     border-radius: 50%;
+    color: var(--primary);
     width: 24px;
     height: 24px;
     display: flex;
@@ -156,53 +267,29 @@ moodboard {
     justify-content: center;
     cursor: pointer;
     opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 10;
+    transition: opacity 0.3s ease;
 }
 
 .moodboard-item:hover .remove-image {
     opacity: 1;
 }
 
-.fade-out {
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-.image-upload-container {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Style the file upload button */
-.image-upload-container label {
-    cursor: pointer;
-    margin-bottom: 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* Visual feedback for save notification */
 .save-notification {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: var(--primary, #6E403D);
-    color: white;
-    padding: 12px 20px;
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 10px 20px;
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    z-index: 1050;
-    animation: fadeIn 0.3s ease-out forwards, fadeOut 0.3s ease-in forwards 1.7s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeInOut 2s ease forwards;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(20px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
 }
 
-@keyframes fadeOut {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(-20px); }
-}

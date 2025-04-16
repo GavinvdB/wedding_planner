@@ -18,6 +18,7 @@
     {% endwith %}
 </div>
 
+<div id="dashboard">
 <div class="container mt-5">
     <h1>Dashboard</h1>
     <p>Welkom bij het gebruikerspaneel!</p>
@@ -92,7 +93,6 @@
             <button class="btn btn-sm btn-outline-primary" onclick="saveTimeline()">Save Timeline</button>
         </div>
     
-        <h3>Moodboard</h3>
         <div class="container mt-5">
             <h3>Moodboard</h3>
             <div class="row">
@@ -122,16 +122,17 @@
         </div>
     </div>
 </div>
+</div>
 
-<!-- Add this right before the end of your content block -->
+
 <script>
-    // Add Bootstrap Icons CSS
+
     const iconLink = document.createElement('link');
     iconLink.rel = 'stylesheet';
     iconLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
     document.head.appendChild(iconLink);
 
-    // Timeline functionality
+
     function addTask() {
         const taskInput = document.getElementById('taskInput');
         const taskCategory = document.getElementById('taskCategory');
@@ -139,7 +140,7 @@
         
         if (taskInput.value.trim() === '') return;
         
-        // Get appropriate icon based on category
+
         let icon = 'bi-check-circle';
         switch(taskCategory.value) {
             case 'venue': icon = 'bi-building'; break;
@@ -161,8 +162,7 @@
         
         taskList.appendChild(newTask);
         taskInput.value = '';
-        
-        // Save to localStorage
+
         saveTimeline();
     }
     
@@ -185,7 +185,7 @@
     function filterTasks(category) {
         const tasks = document.querySelectorAll('.task-item');
         
-        // Update active button
+
         document.querySelectorAll('.btn-group .btn').forEach(btn => {
             btn.classList.remove('active');
         });
@@ -214,7 +214,7 @@
         
         localStorage.setItem('weddingTasks', JSON.stringify(tasks));
         
-        // Show a save notification
+
         const saveNotification = document.createElement('div');
         saveNotification.className = 'save-notification';
         saveNotification.textContent = 'Timeline saved!';
@@ -246,7 +246,7 @@
                 if (task.completed) newTask.classList.add('completed');
                 newTask.dataset.category = task.category;
                 
-                // Extract just the task text without the icon
+
                 const taskText = task.text.includes('>') ? 
                     task.text.split('>')[1].trim() : task.text;
                 
@@ -262,8 +262,7 @@
             });
         }
     }
-    
-    // Moodboard functionality
+
     function addMoodboardImage() {
         const input = document.getElementById('imageUrlInput');
         const moodboard = document.getElementById('moodboard');
@@ -273,7 +272,7 @@
             return;
         }
         
-        // Remove "No images" message if it exists
+   
         const noImagesMsg = moodboard.querySelector('p');
         if (noImagesMsg) {
             moodboard.innerHTML = '';
@@ -286,7 +285,7 @@
         img.src = input.value;
         img.alt = 'Moodboard image';
         img.onerror = function() {
-            // If image fails to load, show a placeholder
+
             this.src = 'https://via.placeholder.com/150?text=Invalid+Image';
         };
         
@@ -294,20 +293,20 @@
         removeBtn.className = 'remove-image';
         removeBtn.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
         removeBtn.onclick = function(e) {
-            e.stopPropagation(); // Prevent event bubbling
+            e.stopPropagation();
             imgContainer.classList.add('fade-out');
             setTimeout(() => {
                 imgContainer.remove();
                 saveMoodboard();
                 
-                // Show "No images" message if moodboard is empty
+
                 if (moodboard.children.length === 0) {
                     moodboard.innerHTML = '<p class="text-center text-muted">No images added yet. Start adding images to your moodboard!</p>';
                 }
             }, 300);
         };
         
-        // Add image preview functionality
+
         imgContainer.addEventListener('click', function() {
             previewImage(img.src);
         });
@@ -319,13 +318,13 @@
         input.value = '';
         saveMoodboard();
         
-        // Show feedback
+
         showNotification('Image added to moodboard!');
     }
     
-    // Function to preview image in a modal
+
     function previewImage(src) {
-        // Create a modal dynamically
+
         const modalDiv = document.createElement('div');
         modalDiv.className = 'modal fade';
         modalDiv.id = 'imagePreviewModal';
@@ -348,11 +347,11 @@
         
         document.body.appendChild(modalDiv);
         
-        // Use Bootstrap's modal API to show the modal
+
         const modal = new bootstrap.Modal(modalDiv);
         modal.show();
         
-        // Remove the modal from DOM when hidden
+
         modalDiv.addEventListener('hidden.bs.modal', function() {
             document.body.removeChild(modalDiv);
         });
@@ -363,7 +362,7 @@
         const images = [];
         
         moodboard.querySelectorAll('img').forEach(img => {
-            // Don't save placeholder images
+
             if (!img.src.includes('placeholder')) {
                 images.push(img.src);
             }
@@ -412,20 +411,20 @@
         }
     }
     
-    // Add this function for file uploads
+
     function setupFileUpload() {
         const fileUpload = document.getElementById('fileUpload');
         
         fileUpload.addEventListener('change', function() {
             const file = this.files[0];
             if (file) {
-                // Check file size (limit to 5MB)
+
                 if (file.size > 5 * 1024 * 1024) {
                     alert('Image is too large. Please select an image under 5MB.');
                     return;
                 }
                 
-                // Check file type
+
                 if (!file.type.match('image.*')) {
                     alert('Please select an image file (JPG, PNG, GIF, etc.)');
                     return;
@@ -433,7 +432,7 @@
                 
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    // This is the base64 data URL of the image
+
                     const imageDataUrl = e.target.result;
                     addImageToMoodboard(imageDataUrl);
                 };
@@ -442,11 +441,11 @@
         });
     }
     
-    // Modify the addMoodboardImage function to work with the new approach
+
     function addImageToMoodboard(imageSource) {
         const moodboard = document.getElementById('moodboard');
         
-        // Remove "No images" message if it exists
+   
         const noImagesMsg = moodboard.querySelector('p');
         if (noImagesMsg) {
             moodboard.innerHTML = '';
@@ -463,20 +462,20 @@
         removeBtn.className = 'remove-image';
         removeBtn.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
         removeBtn.onclick = function(e) {
-            e.stopPropagation(); // Prevent event bubbling
+            e.stopPropagation(); 
             imgContainer.classList.add('fade-out');
             setTimeout(() => {
                 imgContainer.remove();
                 saveMoodboard();
                 
-                // Show "No images" message if moodboard is empty
+
                 if (moodboard.children.length === 0) {
                     moodboard.innerHTML = '<p class="text-center text-muted">No images added yet. Start adding images to your moodboard!</p>';
                 }
             }, 300);
         };
         
-        // Add image preview functionality
+
         imgContainer.addEventListener('click', function() {
             previewImage(img.src);
         });
@@ -489,20 +488,20 @@
         showNotification('Image added to moodboard!');
     }
     
-    // Update your DOMContentLoaded event to include file upload setup
+
     document.addEventListener('DOMContentLoaded', function() {
         loadTimeline();
         loadMoodboard();
-        setupFileUpload(); // Add this line
+        setupFileUpload(); 
         
-        // Add enter key support for adding tasks
+
         document.getElementById('taskInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 addTask();
             }
         });
         
-        // Add enter key support for adding moodboard images
+  
         document.getElementById('imageUrlInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 addMoodboardImage();
