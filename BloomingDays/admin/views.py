@@ -56,4 +56,4 @@ def delform():
         db.session.commit()
 
         return render_template('homeDB.html')
-    return render_template("delForm.html",form=form)
+    return render_template("delform.html",form=form)
