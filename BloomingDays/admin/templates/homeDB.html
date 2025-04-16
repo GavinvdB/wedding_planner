@@ -1,0 +1,27 @@
+{% extends "baseDB.html" %}
+{% block content %}
+<div>
+    <h1>Dit zijn alle contactformulieren die op zijn gestuurd:</h1>
+    <br>
+    <table class="table" border="2">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>voornaam</th>
+                        <th>achternaam</th>
+                        <th>tekst</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for af in afspraken %}
+                    <tr>
+                        <td>{{ af.id }}</td>
+                        <td>{{ af.voornaam }}</td>
+                        <td>{{ af.achternaam }}</td>
+                        <td>{{ af.tekst }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>  
+</div>
+{% endblock %}

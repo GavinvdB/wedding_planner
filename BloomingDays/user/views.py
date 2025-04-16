@@ -34,6 +34,7 @@ def contact():
             email=form.email.data,
             tekst=form.tekst.data
         )
+        
         db.session.add(contact)
         db.session.commit()
         
@@ -88,3 +89,4 @@ def register():
         flash('Dank voor de registratie. Er kan nu ingelogd worden! ')
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
+
