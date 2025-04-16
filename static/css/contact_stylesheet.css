@@ -1,19 +1,44 @@
+:root {
+    --primary: #6E403D;      
+    --secondary: #ffece1;   
+    --accent: #666354;    
+    --light: #F5E8DB;      
+    --primary-light: #8a5452; 
+    --text-dark: #333333;   
+    --text-light: #ffffff;   
+}
+
+body {
+    background-color: var(--light);
+    color: var(--text-dark);
+    font-family: 'Montserrat', 'Arial', sans-serif;
+}
+
+
 .container-fluid {
-    background: #ffece1;
+    background: var(--secondary);
 }
 
 .nav-link {
-    color: #6E403D;
+    color: var(--primary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-light);
 }
 
 .navbar {
     margin: 0; 
     padding: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.nav-link{
-   font-size: 20px; 
+.nav-link {
+    font-size: 18px; 
 }
+
 
 .contactForm{
     padding: 15px;
@@ -38,7 +63,7 @@
 
 .overlay-text form {
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); 
+    background: url('../images/weddinggirl1.jpg');
     border-radius: 8px; 
     margin-top: 15px;
 }

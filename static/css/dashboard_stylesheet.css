@@ -1,0 +1,271 @@
+:root {
+    --primary: #6E403D;      
+    --secondary: #ffece1;   
+    --accent: #666354;    
+    --light: #F5E8DB;      
+    --primary-light: #8a5452; 
+    --text-dark: #333333;   
+    --text-light: #ffffff;   
+}
+
+body {
+    background-color: var(--light);
+    color: var(--text-dark);
+    font-family: 'Montserrat', 'Arial', sans-serif;
+}
+
+
+.container-fluid {
+    background: var(--secondary);
+}
+
+.nav-link {
+    color: var(--primary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-light);
+}
+
+.navbar {
+    margin: 0; 
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-link {
+    font-size: 18px; 
+}
+
+
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    background-color: var(--primary);
+    color: var(--text-light);
+    font-weight: 600;
+    border-radius: 8px 8px 0 0 !important;
+    padding: 12px 20px;
+}
+
+.card-body {
+    background-color: var(--secondary);
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+
+/* Form elements - Updated Textbox Styling */
+.form-control {
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    background-color: white;  /* Changed from var(--light) to white */
+    color: var(--accent);     /* Text color to match your palette */
+    box-shadow: inset 0 2px 4px rgba(102, 99, 84, 0.1); /* Subtle inner shadow */
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    background-color: #fcf9f7;  /* Very light version of your palette */
+    box-shadow: 0 0 0 0.2rem rgba(110, 64, 61, 0.25);
+    color: var(--text-dark);
+}
+
+
+.form-control::placeholder {
+    color: #b1ae9e; 
+    font-style: italic;
+}
+
+
+.message-input {
+    background-color: #fdf6f0;  
+    border-left: 3px solid var(--primary);
+}
+
+
+input[type="date"].form-control {
+    background-color: #f7f6f2;  
+    border-left: 3px solid var(--accent);
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+#venue {
+    background-image: url('data:image/svg+
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    padding: 8px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+/* Countdown */
+.countdown {
+    font-size: 1.5rem;
+    color: var(--primary);
+    text-align: center;
+    margin: 15px 0;
+    padding: 15px;
+    background-color: var(--light);
+    border-radius: 6px;
+    border-left: 4px solid var(--primary);
+}
+
+
+.moodboard {
+    border: 2px dashed var(--accent);
+    padding: 15px;
+    height: 250px;
+    overflow-y: auto;
+    background-color: var(--light);
+    border-radius: 8px;
+}
+
+.moodboard img {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+.message-box {
+    border: 1px solid var(--accent);
+    padding: 15px;
+    height: 200px;
+    overflow-y: auto;
+    background-color: var(--light);
+    border-radius: 8px;
+}
+
+.message-box p {
+    padding: 10px;
+    background-color: var(--secondary);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--primary);
+}
+
+
+.list-group-item {
+    background-color: var(--light);
+    border-color: var(--accent);
+    color: var(--text-dark);
+    margin-bottom: 5px;
+    border-radius: 4px !important;
+    padding: 12px 15px;
+}
+
+.list-group-item:hover {
+    background-color: var(--secondary);
+}
+
+
+h1 {
+    color: var(--primary);
+    font-weight: 700;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* Flash messages */
+.flash-messages {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    padding: 10px;
+}
+
+.alert {
+    text-align: center;
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.alert-success {
+    background-color: var(--secondary);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Footer */
+.footer-div {
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.footer-div h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-div p, .footer-div a {
+    font-size: 14px;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.footer-div a:hover {
+    text-decoration: underline;
+    color: var(--secondary);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    .countdown {
+        font-size: 1rem;
+    }
+    
+    .card-header {
+        padding: 10px 15px;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+}

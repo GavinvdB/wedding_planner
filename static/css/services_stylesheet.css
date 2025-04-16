@@ -1,9 +1,37 @@
+:root {
+    --primary: #6E403D;      
+    --secondary: #ffece1;   
+    --accent: #666354;    
+    --light: #F5E8DB;      
+    --primary-light: #8a5452; 
+    --text-dark: #333333;   
+    --text-light: #ffffff;   
+}
+
+h1 {
+    font-family: 'Times New Roman';
+}
+
+h3 {
+    color: var(--light);
+    font-family: 'calibri';
+}
+
+p {
+    font-family: 'helvetica';
+    font-size: 18px;
+}
 .container-fluid {
-    background: #ffece1;
+    background: var(--secondary);
 }
 
 .nav-link {
-    color: #6E403D;
+    color: var(--primary);
+    
+}
+.nav-link:hover {
+    color: var(--accent); 
+    transform: translateY(-2px); 
 }
 
 .navbar {
@@ -14,7 +42,6 @@
 .nav-link{
    font-size: 20px; 
 }
-
 .contactForm{
     padding: 15px;
 }
@@ -29,7 +56,7 @@
 .service {
     flex: 1; 
     padding: 10px;
-    background-color: #ffece1; 
+    background-color: var(--secondary); 
     box-sizing: border-box; 
 }
 
@@ -44,7 +71,7 @@
 }
 
 .eerste-div{
-    background-color: #6E403D;
+    background-color: var(--primary);
     padding: 20px;
     
 
@@ -58,7 +85,7 @@
 .eerste-div h1{
     padding-left: 0; 
     text-align: center; 
-    color: white;
+    color: var(--text-light);
     font-family: 'Times New Roman';
     font-size: 3rem; 
 }
@@ -69,13 +96,13 @@ h1{
 }
 
 h2{
-    color:white;
+    color:var(--text-light);
     font-family: 'Times New Roman';
 
 }
 
 p{
-    color:white
+    color:var(--text-light)
 
 }
 
@@ -84,15 +111,15 @@ p{
 }
 
 .tweede-div{
-    background-color: #6E403D;
+    background-color: var(--primary);
     padding: 20px;
     
 
 }
 
 .footer-div {
-    background-color: #ffece1;
-    color: #6E403D;
+    background-color: var(--accent);
+    color: var(--accent);
     padding: 20px 0; 
 }
 
@@ -103,7 +130,7 @@ p{
 
 .footer-div p, .footer-div a {
     font-size: 14px;
-    color: #6E403D;
+    color: var(--secondary);
     text-decoration: none;
 }
 
@@ -121,7 +148,7 @@ p{
 }
 
 .footer-links a {
-    color: #6E403D;
+    color: var(--primary);
     text-decoration: none;
 }
 
@@ -143,11 +170,11 @@ p{
 .features-list li {
     margin-bottom: 8px;
     list-style-type: circle; 
-    color:white
+    color:var(--text-light)
 }
 
 .pricing {
     font-weight: bold;
     margin-top: 15px;
-    color: #ffffff;
+    color: var(--text-light);
 }

@@ -1,9 +1,19 @@
+:root {
+    --primary: #6E403D;      
+    --secondary: #ffece1;   
+    --accent: #666354;    
+    --light: #F5E8DB;      
+    --primary-light: #8a5452; 
+    --text-dark: #333333;   
+    --text-light: #ffffff;   
+}
+
 h1 {
     font-family: 'Times New Roman';
 }
 
 h3 {
-    color:blue;
+    color: var(--light);
     font-family: 'calibri';
 }
 
@@ -12,11 +22,16 @@ p {
     font-size: 18px;
 }
 .container-fluid {
-    background: #ffece1;
+    background: var(--secondary);
 }
 
 .nav-link {
-    color: #6E403D;
+    color: var(--primary);
+    
+}
+.nav-link:hover {
+    color: var(--accent); 
+    transform: translateY(-2px); 
 }
 
 .navbar {
@@ -28,7 +43,7 @@ p {
    font-size: 20px; 
 }
 .eerste-div{
-    background:#6E403D;
+    background:var(--primary);
 }
 
 .eerste-div img {
@@ -47,7 +62,7 @@ p {
     height: auto;
     position: relative;
     text-align: left;
-    color: white;
+    color: var(--text-light);
 }
 
 .tweede-div img {
@@ -67,30 +82,30 @@ p {
 .tweede-div h1 {
     font-size: 36px;
     line-height: 1.2;
-    color: white;
+    color: var(--text-light);
 }
 
 .tweede-div p {
     font-size: 20px;
     line-height: 1.5;
-    color: white;
+    color: var(--text-light);
 }
 
 .derde-div {
-    background: #ffece1; /* Background color */
-    padding: 20px; /* Padding inside the div */
-    box-sizing: border-box; /* Include padding in width calculation */
-    width: 100%; /* Ensure it spans the full width */
-    margin: 0; /* Remove any default margins */
-    overflow: hidden; /* Prevent content overflow */
+    background: var(--light);
+    padding: 20px; 
+    box-sizing: border-box; 
+    width: 100%; 
+    margin: 0;
+    overflow: hidden; 
 }
 
 .derde-div.container {
-    max-width: 100%; /* Override Bootstrap's container max-width */
-    padding-left: 0; /* Remove Bootstrap's container padding */
-    padding-right: 0; /* Remove Bootstrap's container padding */
-    margin-left: 0; /* Remove left margin */
-    margin-right: 0; /* Remove right margin */
+    max-width: 100%; 
+    padding-left: 0;
+    padding-right: 0; 
+    margin-left: 0; 
+    margin-right: 0; 
 }
 
 .derde-div img {
@@ -101,10 +116,10 @@ p {
 }
 
 .derde-div .responsive-image {
-    width: 100%; /* Make the image responsive */
-    max-width: 400px; /* Set maximum size as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 auto; /* Center the image */
+    width: 100%; 
+    max-width: 400px;
+    height: auto; 
+    margin: 0 auto; 
 }
 
 .derde-div .row {
@@ -114,16 +129,16 @@ p {
 }
 
 .derde-div .col-md-6 {
-    padding: 15px 20px; /* Add consistent padding */
+    padding: 15px 20px; 
 }
 
 .derde-div h1 {
-    margin-top: 0; /* Remove top margin */
-    margin-bottom: 20px; /* Add consistent bottom margin */
+    margin-top: 0; 
+    margin-bottom: 20px; 
 }
 
 .derde-div p {
-    margin-bottom: 15px; /* Consistent paragraph spacing */
+    margin-bottom: 15px;
 }
 
 html, body {
@@ -133,16 +148,16 @@ html, body {
 }
 
 .custom-button {
-    background-color: #6E403D; 
-    color: white; 
+    background-color: var(--primary); 
+    color: var(--text-light); 
     border: none; 
     font-family: 'helvetica';
 }
 
 .custom-button:hover {
-    background-color: white; 
-    color: #6E403D;
-    border: #6E403D;
+    background-color: var(--text-light); 
+    color: var(--primary);
+    border: var(--primary);
     font-family: 'helvetica';
 }
 
@@ -194,20 +209,20 @@ html, body {
 .vierde-div h1{
     padding-left: 0; 
     text-align: center; 
-    color: white;
+    color: var(--text-light);
     font-family: 'Times New Roman';
     font-size: 3rem; 
 }
 
 .vierde-div p
 {
-    color: white;
+    color: var(--text-light);
     font-family: 'Times New Roman';
     
 }
 
 h2{
-    color:white;
+    color:var(--text-light);
     font-family: 'Times New Roman';
 
 }
@@ -220,7 +235,7 @@ h2{
 
 .footer-div {
     background-color: #6E403D;
-    color: white;
+    color: var(--text-light);
     padding: 20px 0; 
 }
 
@@ -231,7 +246,7 @@ h2{
 
 .footer-div p, .footer-div a {
     font-size: 14px;
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
 }
 
@@ -249,7 +264,7 @@ h2{
 }
 
 .footer-links a {
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
 }
 
