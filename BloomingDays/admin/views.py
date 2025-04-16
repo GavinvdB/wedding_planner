@@ -26,6 +26,7 @@ def logout():
     return redirect(url_for('home'))
 
 @admin_blueprint.route("/database")   
+@login_required
 def database():
     #homepagina van de database dat alle afspraken laat zien.
     afspraken = ContactDatabase.query.all()
