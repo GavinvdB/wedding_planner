@@ -38,9 +38,9 @@ def contact():
         db.session.commit()
         
         flash('Bedankt voor je bericht! We nemen contact met je op.')
-        return redirect(url_for('home1'))  
+        return redirect(url_for('home'))  
         
-    return render_template("contact.html", form=form)
+    return url_for("user.contact", form=form)
 
 @user_blueprint.route('/login', methods=['GET', 'POST'])
 def login(): 

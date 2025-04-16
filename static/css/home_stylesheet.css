@@ -77,9 +77,20 @@ p {
 }
 
 .derde-div {
-    background-color:#ffece1; /* or any color that matches your design */
-    padding: 40px 0; /* Add proper vertical padding */
+    background: #ffece1; /* Background color */
+    padding: 20px; /* Padding inside the div */
+    box-sizing: border-box; /* Include padding in width calculation */
+    width: 100%; /* Ensure it spans the full width */
     margin: 0; /* Remove any default margins */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.derde-div.container {
+    max-width: 100%; /* Override Bootstrap's container max-width */
+    padding-left: 0; /* Remove Bootstrap's container padding */
+    padding-right: 0; /* Remove Bootstrap's container padding */
+    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
 }
 
 .derde-div img {
@@ -97,7 +108,9 @@ p {
 }
 
 .derde-div .row {
-    margin: 0; /* Remove default row margins */
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
 }
 
 .derde-div .col-md-6 {
