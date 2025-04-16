@@ -2,7 +2,7 @@ from flask import Blueprint, Flask, render_template, redirect, url_for, session,
 from BloomingDays import db
 from flask_login import login_user, login_required, logout_user
 from BloomingDays.admin.models import User, ContactDatabase
-from BloomingDays.forms import ListForm
+from BloomingDays.forms import ListForm, VerwijderForm
 
 admin_blueprint = Blueprint('admin',
                              __name__,
@@ -32,8 +32,9 @@ def database():
     return render_template("homeDB.html",afspraken=afspraken) 
 
 @admin_blueprint.route("/dblist",methods=['GET', 'POST'])   
+
 def dblist():
-    #Voer de ID van de afspraak waarvan je meer over wilt weten op deze pagina.
+    #Voer de ID van het formulier waarvan je meer over wilt weten op deze pagina.
     form = ListForm()
     
     if form.validate_on_submit():
@@ -43,3 +44,16 @@ def dblist():
 
         return render_template("dblist.html",form=form,con=con,id=id)
     return render_template("dblist.html", form=form) 
+
+@admin_blueprint.route("/delform", methods=['GET', 'POST'])
+def delform():
+    #pagina om formulieren te verwijderen
+    form = VerwijderForm()
+    if form.validate_on_submit():
+        id = form.id.data
+        formulier = ContactDatabase.query.get(id)
+        db.session.delete(formulier)
+        db.session.commit()
+
+        return render_template('homeDB.html')
+    return render_template("delForm.html",form=form)

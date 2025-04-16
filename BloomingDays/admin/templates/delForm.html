@@ -1,0 +1,12 @@
+{% extends "baseDB.html" %}
+{% block contentDB %}
+<div>
+    <h1>Formulier verwijderen?</h1>
+    <p>Vul het ID van het formulier in en klik op Verwijder.</p>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.id.label }} {{ form.id() }}
+        {{ form.submit() }}
+    </form>
+</div>
+{% endblock %}

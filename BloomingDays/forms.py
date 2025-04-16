@@ -40,5 +40,10 @@ class ContactForm(FlaskForm):
 
 class ListForm(FlaskForm):
 
-    dbID = IntegerField('Vul de ID van de afspraak om meer details te bekijken:')
+    dbID = IntegerField('Vul de ID van het formulier om meer details te bekijken:')
     submit = SubmitField('Bekijk')
+
+class VerwijderForm(FlaskForm):
+
+    id = IntegerField('Vul het ID van het formulier die verwijderd gaat worden in:')
+    submit = SubmitField('Verwijder')
