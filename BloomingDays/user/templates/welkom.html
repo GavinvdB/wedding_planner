@@ -18,87 +18,497 @@
     {% endwith %}
 </div>
 
-
-
 <div class="container mt-5">
     <h1>Dashboard</h1>
     <p>Welkom bij het gebruikerspaneel!</p>
 
     <div class="container dashboard">
         <h1>Wedding Dashboard</h1>
-    
-        <!-- Wedding Date -->
-        <div class="form-group">
-            <label for="weddingDate">Wedding Date:</label>
-            <input type="date" id="weddingDate" class="form-control" onchange="updateCountdown()">
-        </div>
-    
-        <div class="countdown" id="countdown">Countdown: -- days -- hours -- minutes -- seconds</div>
-    
-        <div class="form-group">
-            <label for="venue">Venue Locator:</label>
-            <input type="text" id="venue" class="form-control" placeholder="Enter venue name or address">
-            <button class="btn btn-primary mt-2" onclick="locateVenue()">Locate Venue</button>
-        </div>
-    
+
         <h3>Planning Timeline</h3>
-        <ul class="list-group">
-            <li class="list-group-item">Book Venue</li>
-            <li class="list-group-item">Send Invitations</li>
-            <li class="list-group-item">Finalize Guest List</li>
-            <li class="list-group-item">Choose Attire</li>
-            <li class="list-group-item">Confirm Vendors</li>
+        
+        <!-- Timeline Input -->
+        <div class="timeline-input mb-3">
+            <div class="input-group">
+                <input type="text" id="taskInput" class="form-control" placeholder="Add a new task...">
+                <select id="taskCategory" class="form-select" style="max-width: 150px;">
+                    <option value="general">General</option>
+                    <option value="venue">Venue</option>
+                    <option value="attire">Attire</option>
+                    <option value="guests">Guests</option>
+                    <option value="vendors">Vendors</option>
+                </select>
+                <button class="btn btn-primary" onclick="addTask()">Add Task</button>
+            </div>
+        </div>
+        
+        <!-- Timeline List -->
+        <ul class="list-group timeline-list" id="taskList">
+            <li class="list-group-item d-flex justify-content-between align-items-center task-item" data-category="venue">
+                <span><i class="bi bi-building me-2"></i> Book Venue</span>
+                <div class="task-actions">
+                    <button class="btn btn-sm btn-outline-success me-1" onclick="markComplete(this)"><i class="bi bi-check-lg"></i></button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="removeTask(this)"><i class="bi bi-trash"></i></button>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center task-item" data-category="guests">
+                <span><i class="bi bi-envelope me-2"></i> Send Invitations</span>
+                <div class="task-actions">
+                    <button class="btn btn-sm btn-outline-success me-1" onclick="markComplete(this)"><i class="bi bi-check-lg"></i></button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="removeTask(this)"><i class="bi bi-trash"></i></button>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center task-item" data-category="guests">
+                <span><i class="bi bi-people me-2"></i> Finalize Guest List</span>
+                <div class="task-actions">
+                    <button class="btn btn-sm btn-outline-success me-1" onclick="markComplete(this)"><i class="bi bi-check-lg"></i></button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="removeTask(this)"><i class="bi bi-trash"></i></button>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center task-item" data-category="attire">
+                <span><i class="bi bi-bag me-2"></i> Choose Attire</span>
+                <div class="task-actions">
+                    <button class="btn btn-sm btn-outline-success me-1" onclick="markComplete(this)"><i class="bi bi-check-lg"></i></button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="removeTask(this)"><i class="bi bi-trash"></i></button>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center task-item" data-category="vendors">
+                <span><i class="bi bi-shop me-2"></i> Confirm Vendors</span>
+                <div class="task-actions">
+                    <button class="btn btn-sm btn-outline-success me-1" onclick="markComplete(this)"><i class="bi bi-check-lg"></i></button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="removeTask(this)"><i class="bi bi-trash"></i></button>
+                </div>
+            </li>
         </ul>
+        
+        <div class="d-flex justify-content-between mt-3 mb-4">
+            <div class="btn-group">
+                <button class="btn btn-sm btn-outline-secondary active" onclick="filterTasks('all')">All</button>
+                <button class="btn btn-sm btn-outline-secondary" onclick="filterTasks('venue')">Venue</button>
+                <button class="btn btn-sm btn-outline-secondary" onclick="filterTasks('attire')">Attire</button>
+                <button class="btn btn-sm btn-outline-secondary" onclick="filterTasks('guests')">Guests</button>
+                <button class="btn btn-sm btn-outline-secondary" onclick="filterTasks('vendors')">Vendors</button>
+            </div>
+            <button class="btn btn-sm btn-outline-primary" onclick="saveTimeline()">Save Timeline</button>
+        </div>
     
-        <h3>Message System</h3>
-        <div class="message-box" id="messageBox">
-            <p>No messages yet.</p>
+        <h3>Moodboard</h3>
+        <div class="container mt-5">
+            <h3>Moodboard</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Wedding Inspiration
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <div class="image-upload-container">
+                                    <label for="fileUpload" class="btn btn-outline-primary">
+                                        <i class="bi bi-upload"></i> Upload Image
+                                    </label>
+                                    <input type="file" id="fileUpload" accept="image/*" style="display: none;">
+                                    <small class="form-text text-muted d-block mt-1">Upload images from your device</small>
+                                </div>
+                                <button class="btn btn-primary" onclick="saveMoodboard()">Save Moodboard</button>
+                            </div>
+                            <div class="moodboard mt-4" id="moodboard">
+                                <p class="text-center text-muted">No images added yet. Start adding images to your moodboard!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <input type="text" id="messageInput" class="form-control" placeholder="Type your message here">
-            <button class="btn btn-primary mt-2" onclick="sendMessage()">Send Message</button>
-        </div>
-</div>
-<h3>Moodboard</h3>
-<div class="moodboard" id="moodboard">
-    <p>No images added yet.</p>
-</div>
-<div class="form-group">
-    <input type="text" id="moodboardInput" class="form-control" placeholder="Add image URL">
-    <button class="btn btn-primary mt-2" onclick="addMoodboardImage()">Add Image</button>
-</div>
+    </div>
 </div>
 
+<!-- Add this right before the end of your content block -->
 <script>
-function updateCountdown() {
-    const weddingDate = new Date(document.getElementById('weddingDate').value);
-    const now = new Date();
-    const timeDiff = weddingDate - now;
+    // Add Bootstrap Icons CSS
+    const iconLink = document.createElement('link');
+    iconLink.rel = 'stylesheet';
+    iconLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
+    document.head.appendChild(iconLink);
 
-    if (timeDiff > 0) {
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-        document.getElementById('countdown').innerText = `Countdown: ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
-    } else {
-        document.getElementById('countdown').innerText = "The wedding day has arrived!";
+    // Timeline functionality
+    function addTask() {
+        const taskInput = document.getElementById('taskInput');
+        const taskCategory = document.getElementById('taskCategory');
+        const taskList = document.getElementById('taskList');
+        
+        if (taskInput.value.trim() === '') return;
+        
+        // Get appropriate icon based on category
+        let icon = 'bi-check-circle';
+        switch(taskCategory.value) {
+            case 'venue': icon = 'bi-building'; break;
+            case 'attire': icon = 'bi-bag'; break;
+            case 'guests': icon = 'bi-people'; break;
+            case 'vendors': icon = 'bi-shop'; break;
+        }
+        
+        const newTask = document.createElement('li');
+        newTask.className = 'list-group-item d-flex justify-content-between align-items-center task-item';
+        newTask.dataset.category = taskCategory.value;
+        newTask.innerHTML = `
+            <span><i class="bi ${icon} me-2"></i> ${taskInput.value}</span>
+            <div class="task-actions">
+                <button class="btn btn-sm btn-outline-success me-1" onclick="markComplete(this)"><i class="bi bi-check-lg"></i></button>
+                <button class="btn btn-sm btn-outline-danger" onclick="removeTask(this)"><i class="bi bi-trash"></i></button>
+            </div>
+        `;
+        
+        taskList.appendChild(newTask);
+        taskInput.value = '';
+        
+        // Save to localStorage
+        saveTimeline();
     }
-
-
-
-
-
-    // Auto-dismiss alerts after 5 seconds
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-            var alerts = document.querySelectorAll('.alert');
-            alerts.forEach(function(alert) {
-                var bsAlert = new bootstrap.Alert(alert);
-                bsAlert.close();
+    
+    function removeTask(button) {
+        const taskItem = button.closest('.task-item');
+        taskItem.classList.add('fade-out');
+        
+        setTimeout(() => {
+            taskItem.remove();
+            saveTimeline();
+        }, 300);
+    }
+    
+    function markComplete(button) {
+        const taskItem = button.closest('.task-item');
+        taskItem.classList.toggle('completed');
+        saveTimeline();
+    }
+    
+    function filterTasks(category) {
+        const tasks = document.querySelectorAll('.task-item');
+        
+        // Update active button
+        document.querySelectorAll('.btn-group .btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+        
+        tasks.forEach(task => {
+            if (category === 'all' || task.dataset.category === category) {
+                task.style.display = '';
+            } else {
+                task.style.display = 'none';
+            }
+        });
+    }
+    
+    function saveTimeline() {
+        const taskList = document.getElementById('taskList');
+        const tasks = [];
+        
+        taskList.querySelectorAll('.task-item').forEach(task => {
+            tasks.push({
+                text: task.querySelector('span').innerText,
+                category: task.dataset.category,
+                completed: task.classList.contains('completed')
             });
-        }, 5000);
+        });
+        
+        localStorage.setItem('weddingTasks', JSON.stringify(tasks));
+        
+        // Show a save notification
+        const saveNotification = document.createElement('div');
+        saveNotification.className = 'save-notification';
+        saveNotification.textContent = 'Timeline saved!';
+        document.body.appendChild(saveNotification);
+        
+        setTimeout(() => {
+            saveNotification.remove();
+        }, 2000);
+    }
+    
+    function loadTimeline() {
+        const savedTasks = localStorage.getItem('weddingTasks');
+        if (savedTasks) {
+            const tasks = JSON.parse(savedTasks);
+            const taskList = document.getElementById('taskList');
+            taskList.innerHTML = '';
+            
+            tasks.forEach(task => {
+                let icon = 'bi-check-circle';
+                switch(task.category) {
+                    case 'venue': icon = 'bi-building'; break;
+                    case 'attire': icon = 'bi-bag'; break;
+                    case 'guests': icon = 'bi-people'; break;
+                    case 'vendors': icon = 'bi-shop'; break;
+                }
+                
+                const newTask = document.createElement('li');
+                newTask.className = 'list-group-item d-flex justify-content-between align-items-center task-item';
+                if (task.completed) newTask.classList.add('completed');
+                newTask.dataset.category = task.category;
+                
+                // Extract just the task text without the icon
+                const taskText = task.text.includes('>') ? 
+                    task.text.split('>')[1].trim() : task.text;
+                
+                newTask.innerHTML = `
+                    <span><i class="bi ${icon} me-2"></i> ${taskText}</span>
+                    <div class="task-actions">
+                        <button class="btn btn-sm btn-outline-success me-1" onclick="markComplete(this)"><i class="bi bi-check-lg"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" onclick="removeTask(this)"><i class="bi bi-trash"></i></button>
+                    </div>
+                `;
+                
+                taskList.appendChild(newTask);
+            });
+        }
+    }
+    
+    // Moodboard functionality
+    function addMoodboardImage() {
+        const input = document.getElementById('imageUrlInput');
+        const moodboard = document.getElementById('moodboard');
+        
+        if (input.value.trim() === '') {
+            alert('Please enter a valid image URL');
+            return;
+        }
+        
+        // Remove "No images" message if it exists
+        const noImagesMsg = moodboard.querySelector('p');
+        if (noImagesMsg) {
+            moodboard.innerHTML = '';
+        }
+        
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'moodboard-item';
+        
+        const img = document.createElement('img');
+        img.src = input.value;
+        img.alt = 'Moodboard image';
+        img.onerror = function() {
+            // If image fails to load, show a placeholder
+            this.src = 'https://via.placeholder.com/150?text=Invalid+Image';
+        };
+        
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'remove-image';
+        removeBtn.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
+        removeBtn.onclick = function(e) {
+            e.stopPropagation(); // Prevent event bubbling
+            imgContainer.classList.add('fade-out');
+            setTimeout(() => {
+                imgContainer.remove();
+                saveMoodboard();
+                
+                // Show "No images" message if moodboard is empty
+                if (moodboard.children.length === 0) {
+                    moodboard.innerHTML = '<p class="text-center text-muted">No images added yet. Start adding images to your moodboard!</p>';
+                }
+            }, 300);
+        };
+        
+        // Add image preview functionality
+        imgContainer.addEventListener('click', function() {
+            previewImage(img.src);
+        });
+        
+        imgContainer.appendChild(img);
+        imgContainer.appendChild(removeBtn);
+        moodboard.appendChild(imgContainer);
+        
+        input.value = '';
+        saveMoodboard();
+        
+        // Show feedback
+        showNotification('Image added to moodboard!');
+    }
+    
+    // Function to preview image in a modal
+    function previewImage(src) {
+        // Create a modal dynamically
+        const modalDiv = document.createElement('div');
+        modalDiv.className = 'modal fade';
+        modalDiv.id = 'imagePreviewModal';
+        modalDiv.tabIndex = '-1';
+        modalDiv.setAttribute('aria-hidden', 'true');
+        
+        modalDiv.innerHTML = `
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Image Preview</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="${src}" class="img-fluid" alt="Moodboard image preview">
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modalDiv);
+        
+        // Use Bootstrap's modal API to show the modal
+        const modal = new bootstrap.Modal(modalDiv);
+        modal.show();
+        
+        // Remove the modal from DOM when hidden
+        modalDiv.addEventListener('hidden.bs.modal', function() {
+            document.body.removeChild(modalDiv);
+        });
+    }
+    
+    function saveMoodboard() {
+        const moodboard = document.getElementById('moodboard');
+        const images = [];
+        
+        moodboard.querySelectorAll('img').forEach(img => {
+            // Don't save placeholder images
+            if (!img.src.includes('placeholder')) {
+                images.push(img.src);
+            }
+        });
+        
+        localStorage.setItem('weddingMoodboard', JSON.stringify(images));
+    }
+    
+    function loadMoodboard() {
+        const savedImages = localStorage.getItem('weddingMoodboard');
+        if (savedImages) {
+            const images = JSON.parse(savedImages);
+            const moodboard = document.getElementById('moodboard');
+            
+            if (images.length > 0) {
+                moodboard.innerHTML = '';
+                
+                images.forEach(src => {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'moodboard-item';
+                    
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = 'Moodboard image';
+                    img.onerror = function() {
+                        this.src = 'https://via.placeholder.com/150?text=Image+Error';
+                    };
+                    
+                    const removeBtn = document.createElement('button');
+                    removeBtn.className = 'remove-image';
+                    removeBtn.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
+                    removeBtn.onclick = function() {
+                        imgContainer.remove();
+                        saveMoodboard();
+                        
+                        if (moodboard.children.length === 0) {
+                            moodboard.innerHTML = '<p>No images added yet.</p>';
+                        }
+                    };
+                    
+                    imgContainer.appendChild(img);
+                    imgContainer.appendChild(removeBtn);
+                    moodboard.appendChild(imgContainer);
+                });
+            }
+        }
+    }
+    
+    // Add this function for file uploads
+    function setupFileUpload() {
+        const fileUpload = document.getElementById('fileUpload');
+        
+        fileUpload.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                // Check file size (limit to 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('Image is too large. Please select an image under 5MB.');
+                    return;
+                }
+                
+                // Check file type
+                if (!file.type.match('image.*')) {
+                    alert('Please select an image file (JPG, PNG, GIF, etc.)');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // This is the base64 data URL of the image
+                    const imageDataUrl = e.target.result;
+                    addImageToMoodboard(imageDataUrl);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+    
+    // Modify the addMoodboardImage function to work with the new approach
+    function addImageToMoodboard(imageSource) {
+        const moodboard = document.getElementById('moodboard');
+        
+        // Remove "No images" message if it exists
+        const noImagesMsg = moodboard.querySelector('p');
+        if (noImagesMsg) {
+            moodboard.innerHTML = '';
+        }
+        
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'moodboard-item';
+        
+        const img = document.createElement('img');
+        img.src = imageSource;
+        img.alt = 'Moodboard image';
+        
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'remove-image';
+        removeBtn.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
+        removeBtn.onclick = function(e) {
+            e.stopPropagation(); // Prevent event bubbling
+            imgContainer.classList.add('fade-out');
+            setTimeout(() => {
+                imgContainer.remove();
+                saveMoodboard();
+                
+                // Show "No images" message if moodboard is empty
+                if (moodboard.children.length === 0) {
+                    moodboard.innerHTML = '<p class="text-center text-muted">No images added yet. Start adding images to your moodboard!</p>';
+                }
+            }, 300);
+        };
+        
+        // Add image preview functionality
+        imgContainer.addEventListener('click', function() {
+            previewImage(img.src);
+        });
+        
+        imgContainer.appendChild(img);
+        imgContainer.appendChild(removeBtn);
+        moodboard.appendChild(imgContainer);
+        
+        saveMoodboard();
+        showNotification('Image added to moodboard!');
+    }
+    
+    // Update your DOMContentLoaded event to include file upload setup
+    document.addEventListener('DOMContentLoaded', function() {
+        loadTimeline();
+        loadMoodboard();
+        setupFileUpload(); // Add this line
+        
+        // Add enter key support for adding tasks
+        document.getElementById('taskInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addTask();
+            }
+        });
+        
+        // Add enter key support for adding moodboard images
+        document.getElementById('imageUrlInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addMoodboardImage();
+            }
+        });
     });
-</script> 
+</script>
 
-    {% endblock %}
+{%endblock%}

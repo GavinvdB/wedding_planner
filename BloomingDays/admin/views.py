@@ -16,7 +16,7 @@ def welkom():
     except Exception as e:
         flash(f"Error rendering template: {str(e)}")
         print(f"Template error: {str(e)}")
-        return redirect(url_for('home1'))
+        return redirect(url_for('home'))
 
 @admin_blueprint.route('/logout')
 @login_required
