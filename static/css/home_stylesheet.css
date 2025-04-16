@@ -195,7 +195,7 @@ html, body {
 }
 
 .vierde-div{
-    background-color: #6E403D;
+    background-color: var(--accent);
     padding: 20px;
     
 
@@ -234,7 +234,7 @@ h2{
 
 
 .footer-div {
-    background-color: #6E403D;
+    background-color: var(--primary);
     color: var(--text-light);
     padding: 20px 0; 
 }

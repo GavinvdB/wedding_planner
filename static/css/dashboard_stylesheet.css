@@ -125,7 +125,7 @@ input[type="date"].form-control {
     transform: translateY(-2px);
 }
 
-/* Countdown */
+
 .countdown {
     font-size: 1.5rem;
     color: var(--primary);
