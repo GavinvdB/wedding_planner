@@ -6,6 +6,7 @@
     --primary-light: #8a5452; 
     --text-dark: #333333;   
     --text-light: #ffffff;   
+    --text-extra:#36201f;
 }
 
 body {
@@ -13,32 +14,6 @@ body {
     color: var(--text-dark);
     font-family: 'Montserrat', 'Arial', sans-serif;
 }
-
-
-.container-fluid {
-    background: var(--secondary);
-}
-
-.nav-link {
-    color: var(--primary);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: var(--primary-light);
-}
-
-.navbar {
-    margin: 0; 
-    padding: 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.nav-link {
-    font-size: 18px; 
-}
-
 
 .card {
     border: none;
@@ -67,41 +42,39 @@ body {
     border-radius: 0 0 8px 8px;
 }
 
-
-/* Form elements - Updated Textbox Styling */
 .form-control {
     border: 2px solid var(--accent);
     border-radius: 4px;
     padding: 8px 12px;
     margin-bottom: 10px;
-    background-color: white;  /* Changed from var(--light) to white */
-    color: var(--accent);     /* Text color to match your palette */
-    box-shadow: inset 0 2px 4px rgba(102, 99, 84, 0.1); /* Subtle inner shadow */
+    background-color: var(--text-light);  
+    color: var(--accent);     
+    box-shadow: inset 0 2px 4px rgba(102, 99, 84, 0.1);
     transition: all 0.3s ease;
 }
 
 .form-control:focus {
     border-color: var(--primary);
-    background-color: #fcf9f7;  /* Very light version of your palette */
+    background-color: var(--light);  
     box-shadow: 0 0 0 0.2rem rgba(110, 64, 61, 0.25);
     color: var(--text-dark);
 }
 
 
 .form-control::placeholder {
-    color: #b1ae9e; 
+    color:var(--accent); 
     font-style: italic;
 }
 
 
 .message-input {
-    background-color: #fdf6f0;  
+    background-color: var(--light);  
     border-left: 3px solid var(--primary);
 }
 
 
 input[type="date"].form-control {
-    background-color: #f7f6f2;  
+    background-color: var(--light);  
     border-left: 3px solid var(--accent);
     font-family: 'Montserrat', sans-serif;
 }
@@ -194,7 +167,7 @@ h1 {
     margin-bottom: 30px;
 }
 
-/* Flash messages */
+
 .flash-messages {
     position: fixed;
     top: 0;
@@ -217,43 +190,6 @@ h1 {
     color: var(--primary);
 }
 
-/* Footer */
-.footer-div {
-    background-color: var(--primary);
-    color: var(--text-light);
-    padding: 30px 0;
-    margin-top: 50px;
-}
-
-.footer-div h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.footer-div p, .footer-div a {
-    font-size: 14px;
-    color: var(--text-light);
-    text-decoration: none;
-}
-
-.footer-div a:hover {
-    text-decoration: underline;
-    color: var(--secondary);
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 8px;
-}
-
-.text-center {
-    text-align: center;
-}
 
 
 @media (max-width: 768px) {

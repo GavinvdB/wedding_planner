@@ -1,42 +1,48 @@
 {% extends 'base.html' %}
 
 {% block stylesheet %}
-<link href="../../../static/css/base_stylesheet.css" rel="stylesheet" type="text/css">
-<link href="../../../static/css/contact_stylesheet.css" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='css/base_stylesheet.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='css/contact_stylesheet.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block content %}   
-    <div class ="eerste-div"> 
-        <div class="overlay-text">
-    <h1>Contactformulier</h1>
-    
-        {% if voornaam %}
-            <p>Bedankt voor de contactsformulier {{ voornaam}}!</p>
-            <br>
-            <p>U krijgt zo snel mogelijk antwoord.</p>
-        {% else %}
-            <form  method="POST" class="contact-form">
-            {{ form.hidden_tag() }}
-            {{ form.voornaam.label }} {{form.voornaam}}
-            <br>
-            {{ form.achternaam.label }} {{form.achternaam}}
-            <br>
-            {{form.gender.label}}{{form.gender}}
-            <br>
-            {{form.telefoon.label}}{{form.telefoon}}
-            <br>
-            {{ form.email.label }} {{form.email}}
-            <br>
-            {{ form.tekst.label }} {{form.tekst}}
-            <br>
-            {{ form.checkbox.label }} {{form.checkbox}}
-
-            <br>
-            <br>
-            {{ form.submit() }}
-            </form>
-        {% endif %}
+<div class="eerste-div"> 
+    <div class="overlay-text">
+        <h1>Contactformulier</h1>
+        <div class="form-container">
+            {% if voornaam %}
+                <div class="thank-you">
+                    <p>Bedankt voor de contactsformulier {{ voornaam}}!</p>
+                    <p>U krijgt zo snel mogelijk antwoord.</p>
+                </div>
+            {% else %}
+                <form method="POST" class="contact-form">
+                    {{ form.hidden_tag() }}
+                    <div class="form-field">
+                        {{ form.voornaam.label }} {{ form.voornaam(class="form-input") }}
+                    </div>
+                    <div class="form-field">
+                        {{ form.achternaam.label }} {{ form.achternaam(class="form-input") }}
+                    </div>
+                    <div class="form-field">
+                        {{ form.gender.label }} {{ form.gender(class="form-input") }}
+                    </div>
+                    <div class="form-field">
+                        {{ form.telefoon.label }} {{ form.telefoon(class="form-input") }}
+                    </div>
+                    <div class="form-field">
+                        {{ form.email.label }} {{ form.email(class="form-input") }}
+                    </div>
+                    <div class="form-field">
+                        {{ form.tekst.label }} {{ form.tekst(class="form-input") }}
+                    </div>
+                    <div class="button-container">
+                        {{ form.submit(class="submit-btn") }}
+                    </div>
+                </form>
+            {% endif %}
+        </div>
     </div>
-    </div>
-{%endblock%}
+</div>
+{% endblock %}
 

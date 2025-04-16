@@ -9,11 +9,12 @@
     --text-extra:#36201f;
 }
 
-
-
 h1 {
-    font-family: 'Times New Roman';
-}
+    font-family: 'calibri';
+    color: var(--text-extra);
+    text-align: center;
+    padding-top: 20px;
+}   
 
 h3 {
     color: var(--light);
@@ -25,22 +26,21 @@ p {
     font-size: 18px;
 }
 
-.eerste-div{
+.eerste-div {
     background-image: url("../images/weddinggirl1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: auto;
+    padding: 60px 0;  
     position: relative;
-    text-align: left;
+    text-align: center;
 }
 
 .tweede-div .overlay-text {
-    position: absolute;
-    top: 30%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    position: relative; 
+    max-width: 800px;
+    margin: 0 auto;  
+    padding: 30px;
+    border-radius: 8px;
 }
 
 .overlay-text form {
@@ -97,45 +97,195 @@ p {
     cursor: pointer;
 }
 
-.footer-div {
+
+.contact-form .form-input {
+    flex: 1;
+    padding: 8px 12px;
+    margin: 5px 0;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    font-family: 'helvetica', sans-serif;
+    box-sizing: border-box;   
+}
+
+
+.contact-form textarea.form-input {
+    height: 120px;             
+    resize: vertical;          
+}
+
+.contact-form label {
+    width: 120px;
+    text-align: right;
+    margin-right: 15px;
+    padding-top: 8px;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+
+.contact-form input[type="checkbox"] {
+    width: auto;              
+    margin-left: 130px;       
+}
+
+
+.contact-form .submit-btn {
     background-color: var(--primary);
-    color: var(--text-light);
-    padding: 20px 0; 
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.footer-div h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
+.contact-form .submit-btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
 }
 
-.footer-div p, .footer-div a {
-    font-size: 14px;
-    color: var(--text-light);
-    text-decoration: none;
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--secondary);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.footer-div a:hover {
-    text-decoration: underline;
+.form-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
 }
 
-.footer-links {
-    list-style: none;
-    padding: 0;
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
 }
 
-.footer-links li {
-    margin-bottom: 5px;
+
+.checkbox-group {
+    margin-left: 120px;
+    padding-left: 15px;
 }
 
-.footer-links a {
-    color: var(--text-light);
-    text-decoration: none;
+.checkbox-group label {
+    width: auto;
+    margin-right: 10px;
 }
 
-.footer-links a:hover {
-    text-decoration: underline;
+
+.submit-group {
+    margin-top: 25px;
+    justify-content: center;
 }
 
-.text-center {
+
+.submit-button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.thank-you-message {
     text-align: center;
+    padding: 30px;
 }
+
+.thank-you-message p {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--primary);
+}
+
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+.form-field {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+
+.form-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    font-family: 'helvetica', sans-serif;
+    box-sizing: border-box;
+}
+
+
+.button-container {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.submit-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-light);
+}
+
+
+.thank-you {
+    text-align: center;
+    padding: 20px;
+}
+
+.thank-you p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+
+
+@media (max-width: 768px) {
+    .form-field {
+        flex-direction: column;
+    }
+    
+    .contact-form label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    
+    .form-input {
+        width: 100%;
+    }
+    
+    .overlay-text {
+        width: 90%;
+    }
+}
+

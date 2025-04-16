@@ -6,6 +6,7 @@
     --primary-light: #8a5452; 
     --text-dark: #333333;   
     --text-light: #ffffff;   
+    --text-extra:#36201f;
 }
 
 h1 {
@@ -22,7 +23,7 @@ p {
     font-size: 18px;
 }
 .container-fluid {
-    background: var(--secondary);
+    background: var(--light);
 }
 
 .nav-link {

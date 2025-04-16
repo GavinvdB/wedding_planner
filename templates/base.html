@@ -28,7 +28,11 @@
                     <a class="nav-link" href="{{ url_for('user.contact') }}">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('user.login') }}">Login</a>
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Login</a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="{{ url_for('user.login') }}">Login</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ url_for('user.register') }}">Register </a></li>
                 </li>
             </ul>
         </div>

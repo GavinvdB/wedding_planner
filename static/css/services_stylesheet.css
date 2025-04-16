@@ -5,7 +5,8 @@
     --light: #F5E8DB;      
     --primary-light: #8a5452; 
     --text-dark: #333333;   
-    --text-light: #ffffff;   
+    --text-light: #ffffff; 
+    --text-extra:#36201f;  
 }
 
 h1 {
@@ -21,27 +22,7 @@ p {
     font-family: 'helvetica';
     font-size: 18px;
 }
-.container-fluid {
-    background: var(--secondary);
-}
 
-.nav-link {
-    color: var(--primary);
-    
-}
-.nav-link:hover {
-    color: var(--accent); 
-    transform: translateY(-2px); 
-}
-
-.navbar {
-    margin: 0; 
-    padding: 0;
-}
-
-.nav-link{
-   font-size: 20px; 
-}
 .contactForm{
     padding: 15px;
 }
@@ -72,7 +53,8 @@ p {
 
 .eerste-div{
     background-color: var(--primary);
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     
 
 }
@@ -88,6 +70,14 @@ p {
     color: var(--text-light);
     font-family: 'Times New Roman';
     font-size: 3rem; 
+}
+
+.eerste-div .col-md-4 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 h1{
@@ -111,56 +101,15 @@ p{
 }
 
 .tweede-div{
-    background-color: var(--primary);
+    background-color: var(--accent);
     padding: 20px;
     
 
 }
 
-.footer-div {
-    background-color: var(--accent);
-    color: var(--accent);
-    padding: 20px 0; 
-}
-
-.footer-div h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.footer-div p, .footer-div a {
-    font-size: 14px;
-    color: var(--secondary);
-    text-decoration: none;
-}
-
-.footer-div a:hover {
-    text-decoration: underline;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 5px;
-}
-
-.footer-links a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
 .text-center {
     text-align: center;
 }
-
-
 
 .features-list {
     padding-left: 20px;
