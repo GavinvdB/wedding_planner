@@ -1,12 +1,27 @@
 {% extends "baseDB.html" %}
+{% block stylesheet %}
+<link href="{{ url_for('static', filename='css/db_stylesheet.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
 {% block contentDB %}
-<div>
-    <h1>Formulier verwijderen?</h1>
-    <p>Vul het ID van het formulier in en klik op Verwijder.</p>
-    <form method="POST">
-        {{ form.hidden_tag() }}
-        {{ form.id.label }} {{ form.id() }}
-        {{ form.submit() }}
-    </form>
+<div class="admin-dashboard">
+    <h1 class="admin-title">Formulier verwijderen?</h1>
+    <div class="card shadow-sm mb-4">
+        <div class="card-body p-4">
+            <p class="lead text-muted mb-4">Vul het ID van het formulier in en klik op Verwijder.</p>
+            <form method="POST" class="mt-4">
+                <div class="form-group">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.id.label(class="form-label fw-bold") }} 
+                        {{ form.id(class="form-control form-control-lg") }}
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <a href="{{ url_for('admin.homeDB') }}" class="btn btn-outline-secondary me-md-2">Annuleren</a>
+                        {{ form.submit(class="btn btn-danger") }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

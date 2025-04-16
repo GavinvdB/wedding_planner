@@ -1,27 +1,65 @@
 {% extends "baseDB.html" %}
+{% block stylesheet %}
+<link href="{{ url_for('static', filename='css/db_stylesheet.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
 {% block contentDB %}
-{% if id %}
-    ID contactformulier: {{con}}
-    <br>
-    Naam: {{con.voornaam}} {{con.achternaam}}
-    <br>
-    Gender: {{con.gender}}
-    <br>
-    Emailadres: {{con.email}}
-    <br>
-    telefoonnummer: {{con.telefoon}}
-    <br><br>
-    Dit is wat in het contactformulier werd verstuurd: 
-    <br><br> 
-    {{con.tekst}}
-    <br>
-{% else %}
-    <div>
-        <form method="POST">
-            {{ form.hidden_tag() }}
-            {{ form.dbID.label }} {{ form.dbID() }}
-            {{ form.submit() }}
-        </form>
-    </div>
-{% endif %}
+<div class="admin-dashboard">
+    {% if id %}
+        <h1 class="admin-title">Contactformulier Details</h1>
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">Formulier #{{con.id}}</h5>
+            </div>
+            <div class="card-body p-4">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>Naam:</strong></p>
+                        <p class="lead">{{con.voornaam}} {{con.achternaam}}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>Gender:</strong></p>
+                        <p class="lead">{{con.gender}}</p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>Emailadres:</strong></p>
+                        <p class="lead">{{con.email}}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>Telefoonnummer:</strong></p>
+                        <p class="lead">{{con.telefoon}}</p>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <h5 class="mb-3">Bericht</h5>
+                <div class="p-3 bg-light rounded">
+                    <p class="m-0">{{con.tekst}}</p>
+                </div>
+                <div class="mt-4 d-flex justify-content-end">
+                    <a href="{{ url_for('admin.homeDB') }}" class="btn btn-outline-secondary">Terug naar overzicht</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h1 class="admin-title">Zoek Contactformulier</h1>
+        <div class="card shadow-sm mb-4">
+            <div class="card-body p-4">
+                <p class="lead text-muted mb-4">Voer het ID van het contactformulier in om de details te bekijken.</p>
+                <form method="POST" class="mt-4">
+                    <div class="form-group">
+                        {{ form.hidden_tag() }}
+                        <div class="mb-3">
+                            {{ form.dbID.label(class="form-label fw-bold") }} 
+                            {{ form.dbID(class="form-control form-control-lg") }}
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            {{ form.submit(class="btn btn-primary") }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

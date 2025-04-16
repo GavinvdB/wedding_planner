@@ -22,7 +22,7 @@
     <div class="derde-div container-fluid">
         <div class="row align-items-center">
             <div class="col-md-6 text-center text-md-start">
-                <img src="/../static/images/melati.png" alt="melati" class="responsive-image">
+                <img src="{{ url_for('static', filename='images/melati.png') }}" class="rounded-3 shadow-lg" alt="Melati">
             </div>
             <div class="col-md-6">
                 <h1>Over Melati</h1>
@@ -42,36 +42,54 @@
 </section>
 
 <div class="vierde-div">
-    <div class="row">
-        <h1>Onze Diensten</h1>
-        <div class="col-md-4">
-
-            <h2>Van A tot JA!</h2>
-            <p>Als weddingcoach help ik bruidsparen die zelf de regie over hun bruiloft willen houden, 
-                maar wel behoefte hebben aan professionele begeleiding en advies. 
-                Of ze nu vastlopen bij het maken van een draaiboek, moeite hebben met het vinden 
-                van de juiste leveranciers of gewoon even willen sparren – ik denk graag mee. 
-                Zo kunnen ze vol vertrouwen verder met het plannen van hun grote dag, zonder een volledige weddingplanner in te schakelen.
-            </p>
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h1 class="mb-4 text-light">Onze Diensten</h1>
+            </div>
         </div>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0">
+                    <div class="card-body">
+                        <h2 class="card-title mb-3 text-dark">Van A tot JA!</h2>
+                        <p class="card-text text-dark">Als weddingcoach help ik bruidsparen die zelf de regie over hun bruiloft willen houden, 
+                            maar wel behoefte hebben aan professionele begeleiding en advies. 
+                            Of ze nu vastlopen bij het maken van een draaiboek, moeite hebben met het vinden 
+                            van de juiste leveranciers of gewoon even willen sparren – ik denk graag mee. 
+                            Zo kunnen ze vol vertrouwen verder met het plannen van hun grote dag, zonder een volledige weddingplanner in te schakelen.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="col-md-4">
-            <h2>Van A tot Z</h2>
-            <p>Bij de A tot Z weddingplanning zorg ik voor elk detail van de bruiloft. 
-                Van de eerste ideeën tot en met de laatste dans, ik neem de volledige organisatie op mij. 
-                Dit pakket is perfect voor bruidsparen die het liefst alles uit handen willen 
-                geven en willen genieten van hun grote dag zonder zorgen. 
-                Van het kiezen van de locatie tot het coördineren van de leveranciers en het plannen van de ceremonie, alles wordt geregeld.
-            </p>
-        </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0">
+                    <div class="card-body">
+                        <h2 class="card-title mb-3 text-dark">Van A tot Z</h2>
+                        <p class="card-text text-dark">Bij de A tot Z weddingplanning zorg ik voor elk detail van de bruiloft. 
+                            Van de eerste ideeën tot en met de laatste dans, ik neem de volledige organisatie op mij. 
+                            Dit pakket is perfect voor bruidsparen die het liefst alles uit handen willen 
+                            geven en willen genieten van hun grote dag zonder zorgen. 
+                            Van het kiezen van de locatie tot het coördineren van de leveranciers en het plannen van de ceremonie, alles wordt geregeld.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="col-md-4">
-            <h2>Ceremoniemeester</h2>
-            <p>Als ceremoniemeester zorg ik ervoor dat het bruidspaar over niks hoeft na te denken op hun grote dag zelf. 
-                Ik neem de regie in handen, coördineer de verschillende onderdelen en zorg ervoor dat alles op het juiste moment gebeurt. 
-                Mijn doel is om alles soepel en zonder stress te laten verlopen, 
-                zodat het bruidspaar volop kan genieten van het moment.
-            </p>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0">
+                    <div class="card-body">
+                        <h2 class="card-title mb-3 text-dark">Ceremoniemeester</h2>
+                        <p class="card-text text-dark">Als ceremoniemeester zorg ik ervoor dat het bruidspaar over niks hoeft na te denken op hun grote dag zelf. 
+                            Ik neem de regie in handen, coördineer de verschillende onderdelen en zorg ervoor dat alles op het juiste moment gebeurt. 
+                            Mijn doel is om alles soepel en zonder stress te laten verlopen, 
+                            zodat het bruidspaar volop kan genieten van het moment.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,232 @@
+:root {
+    --primary: #6E403D;      
+    --secondary: #ffece1;   
+    --accent: #666354;      
+    --light: #F5E8DB;        
+    --primary-light: #8a5452; 
+    --text-dark: #333333;    
+    --text-light: #ffffff;  
+    --success: #5D8A68;     
+    --danger: #A65D5D;       
+    --text-extra: #36201f;
+}
+
+body {
+    background-color: var(--secondary);
+    color: var(--text-dark);
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+h1 {
+    color: var(--primary);
+    margin-bottom: 30px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 10px;
+}
+
+.admin-dashboard {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--text-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.admin-title {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--light);
+    font-weight: 600;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--light);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--text-light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border: 1px solid var(--light) !important;
+}
+
+.table thead {
+    background-color: var(--primary);
+    color: var(--text-light);
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border: none !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.table th:last-child {
+    border-right: none !important;
+}
+
+.table td {
+    padding: 12px 15px;
+    border: none !important;
+    border-bottom: 1px solid var(--light) !important;
+    border-right: 1px solid var(--light) !important;
+}
+
+.table td:last-child {
+    border-right: none !important;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+.table tbody tr:hover {
+    background-color: var(--light);
+}
+
+.table-row:hover {
+    background-color: var(--light);
+    transition: background-color 0.3s ease;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+
+@media (max-width: 768px) {
+    .table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .admin-dashboard {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    
+    .admin-title {
+        font-size: 1.5rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 10px;
+    }
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--text-light);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-light);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+
+.action-icon {
+    color: var(--accent);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-icon:hover {
+    color: var(--primary);
+    transform: scale(1.2);
+}
+
+
+.alert {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: var(--success);
+    color: var(--text-light);
+}
+
+.alert-danger {
+    background-color: var(--danger);
+    color: var(--text-light);
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-primary {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+.badge-secondary {
+    background-color: var(--accent);
+    color: var(--text-light);
+}
+
+.badge-light {
+    background-color: var(--light);
+    color: var(--text-dark);
+}
