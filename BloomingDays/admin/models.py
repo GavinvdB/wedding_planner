@@ -44,7 +44,7 @@ class ContactDatabase(db.Model):
         self.tekst = tekst
     
     def __repr__(self):
-        return f"{self.voornaam} {self.achternaam} heeft dit gestuurd: {self.tekst}"
+        return f"{self.id}"
     
 def init_db():
     db.create_all()

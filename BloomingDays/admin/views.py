@@ -2,7 +2,7 @@ from flask import Blueprint, Flask, render_template, redirect, url_for, session,
 from BloomingDays import db
 from flask_login import login_user, login_required, logout_user
 from BloomingDays.admin.models import User, ContactDatabase
-from BloomingDays.forms import LoginForm
+from BloomingDays.forms import ListForm
 
 admin_blueprint = Blueprint('admin',
                              __name__,
@@ -31,17 +31,15 @@ def database():
     afspraken = ContactDatabase.query.all()
     return render_template("homeDB.html",afspraken=afspraken) 
 
-@admin_blueprint.route("/dbdetails")   
-def details():
-    #homepagina van de database dat alle afspraken laat zien.
-    afspraken = ContactDatabase.query.all()
-    return render_template("homeDB.html",afspraken=afspraken) 
+@admin_blueprint.route("/dblist",methods=['GET', 'POST'])   
+def dblist():
+    #Voer de ID van de afspraak waarvan je meer over wilt weten op deze pagina.
+    form = ListForm()
+    
+    if form.validate_on_submit():
+        id = form.dbID.data
+        con = ContactDatabase.query.get(id)
+        db.session.commit()
 
-@admin_blueprint.route("/delete/<int:id>", methods=["POST"])
-def delete(id):
-    afsp = ContactDatabase.query.get(id)
-    if afsp is None:
-        abort(404)
-    db.session.delete(afsp)
-    db.session.commit()
-    return redirect(url_for("database"))
+        return render_template("dblist.html",form=form,con=con,id=id)
+    return render_template("dblist.html", form=form) 

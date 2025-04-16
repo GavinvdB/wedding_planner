@@ -24,7 +24,6 @@ def contact():
         session['telefoon'] = form.telefoon.data
         session['email'] = form.email.data
         session['tekst'] = form.tekst.data
-        session['checkbox'] = form.checkbox.data
         
         contact = ContactDatabase(
             voornaam=form.voornaam.data,
