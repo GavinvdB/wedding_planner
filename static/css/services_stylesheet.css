@@ -133,7 +133,21 @@ p{
     text-align: center;
 }
 
-.eerste-div img{
-    
 
+
+.features-list {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.features-list li {
+    margin-bottom: 8px;
+    list-style-type: circle; 
+    color:white
+}
+
+.pricing {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #ffffff;
 }
