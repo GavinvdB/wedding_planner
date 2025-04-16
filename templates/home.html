@@ -7,30 +7,9 @@
     <link href="/../static/css/home_stylesheet.css" rel="stylesheet" type="text/css">
     <title>Home</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </head>
 <body>
-  <nav class="navbar bg-body-tertiary w-100" style="background-color: #ffece1;"> 
-    <div class="container-fluid">
-        <a class="navbar-brand" href=" ">
-            <img src="/../static/images/Rood.png" alt="Logo" width="240" height="135">
-                </a> 
-                    <ul class="nav justify-content-end">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="services">Services</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
-                        </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login">Login</a>
-                    </li>
-            </ul>
-    </div>
-</nav>
+    {% include 'navbar.html' %}
 
 <div class="eerste-div">
     <img src="../../static/images/Roze.png" alt="logo roze" width="600" height="338">
@@ -62,7 +41,7 @@
                 <p> De fascinatie om de liefde te vieren is er altijd geweest. In 2019 kreeg ik de kans om zes maanden stage te lopen als weddingplanner op Bali. 
                     Ik was betrokken bij elke stap van het proces en ontdekte dat mijn creativiteit het mooiste tot uiting komt wanneer ik unieke en op maat gemaakte bruiloften organiseer. In die tijd heb ik meer dan 20 bruiloften mogen helpen realiseren. 
                     Al snel merkte ik dat het me enorm veel energie gaf om aanstaande bruidsparen te adviseren over de mogelijkheden en samen hun droombruiloft te realiseren.</p>
-                <a href="contact" class="btn custom-button btn-lg">Maak nu een afspraak!</a>
+                <a href="{{ url_for('user.contact') }}"class="btn custom-button btn-lg">Maak nu een afspraak!</a>
             </div>
         </div>
     </div>
@@ -103,29 +82,7 @@
     </div>
 </div>
 
-<div class="footer-div">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img src="/../static/images/Roze mono.png" alt="logo mono" class="responsive-image" width="120" height="120">
-            </div>
-            <div class="col-md-4">
-                <h4>Contact Info</h4>
-                <p>Email: info@weddingplanner.com</p>
-                <p>Telefoon: +31 6 12345678</p>
-            </div>
-            <div class="col-md-4">
-                <h4>Volg Ons</h4>
-                <a href="https://facebook.com" target="_blank">Facebook</a><br>
-                <a href="https://instagram.com" target="_blank">Instagram</a><br>
-                <a href="https://twitter.com" target="_blank">Twitter</a>
-            </div>
-        </div>
-        <div class="text-center mt-3">
-            <p>&copy; 2025 Blooming Days. All rights reserved.</p>
-        </div>
-    </div>
-</div>
+{% include 'footer.html' %}
 
 </body>
 </html>

@@ -40,7 +40,7 @@ def contact():
         flash('Bedankt voor je bericht! We nemen contact met je op.')
         return redirect(url_for('home'))  
         
-    return url_for("user.contact", form=form)
+    return render_template("contact.html", form=form)
 
 @user_blueprint.route('/login', methods=['GET', 'POST'])
 def login(): 
