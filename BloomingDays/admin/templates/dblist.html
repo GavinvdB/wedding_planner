@@ -1,0 +1,27 @@
+{% extends "baseDB.html" %}
+{% block contentDB %}
+{% if id %}
+    ID contactformulier: {{con}}
+    <br>
+    Naam: {{con.voornaam}} {{con.achternaam}}
+    <br>
+    Gender: {{con.gender}}
+    <br>
+    Emailadres: {{con.email}}
+    <br>
+    telefoonnummer: {{con.telefoon}}
+    <br><br>
+    Dit is wat in het contactformulier werd verstuurd: 
+    <br><br> 
+    {{con.tekst}}
+    <br>
+{% else %}
+    <div>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.dbID.label }} {{ form.dbID() }}
+            {{ form.submit() }}
+        </form>
+    </div>
+{% endif %}
+{% endblock %}

@@ -3,7 +3,7 @@ from wtforms.validators import DataRequired, Email, EqualTo
 from wtforms import ValidationError
 from wtforms import (StringField, SelectField, TextAreaField, 
                      BooleanField, SubmitField, TelField, 
-                     EmailField, PasswordField)
+                     EmailField, PasswordField, IntegerField)
 from BloomingDays.admin.models import User
 
 class LoginForm(FlaskForm):
@@ -36,5 +36,9 @@ class ContactForm(FlaskForm):
     telefoon = TelField('Wat is uw telefoonnummer?',validators=[DataRequired()])
     email = EmailField('Wat is uw Emailadres?',validators=[DataRequired()])
     tekst = TextAreaField()
-    checkbox = BooleanField("Wil je een nieuwsbrief krijgen?")
     submit = SubmitField('Verzend')
+
+class ListForm(FlaskForm):
+
+    dbID = IntegerField('Vul de ID van de afspraak om meer details te bekijken:')
+    submit = SubmitField('Bekijk')
