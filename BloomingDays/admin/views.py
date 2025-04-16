@@ -1,6 +1,6 @@
 from flask import Blueprint, Flask, render_template, redirect, url_for, session, flash, request, abort
 from BloomingDays import db
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from BloomingDays.admin.models import User, ContactDatabase
 from BloomingDays.forms import ListForm, VerwijderForm
 
@@ -8,7 +8,7 @@ admin_blueprint = Blueprint('admin',
                              __name__,
                              template_folder='templates')
 
-@admin_blueprint.route('/welkom')
+@admin_blueprint.route('/dashboard')
 @login_required
 def welkom():
     try:
@@ -32,8 +32,15 @@ def database():
     afspraken = ContactDatabase.query.all()
     return render_template("homeDB.html",afspraken=afspraken) 
 
-@admin_blueprint.route("/dblist",methods=['GET', 'POST'])   
+@admin_blueprint.route('/homeDB')
+@login_required
+def homeDB():
+    if not current_user.is_admin:
+        flash('You do not have permission to access this page.', 'danger')
+        return redirect(url_for('home'))
+    return render_template('homeDB.html')
 
+@admin_blueprint.route("/dblist",methods=['GET', 'POST'])   
 def dblist():
     #Voer de ID van het formulier waarvan je meer over wilt weten op deze pagina.
     form = ListForm()
