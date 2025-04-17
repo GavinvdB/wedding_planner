@@ -33,9 +33,8 @@ p {
     display: block; 
     margin: 0 auto; 
     max-height: 300px; 
-    object-fit: contain; 
+    object-fit: cover; 
 }
-
 
 .tweede-div {
     background-image:url("weddinggirl1.jpeg");
@@ -138,11 +137,14 @@ html, body {
     cursor: pointer;
     min-width: 150px;
     transition: background-color 0.3s;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.8)
 }
 
 
 .custom-button:hover {
     background-color: var(--primary-light);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.8);
 }
 
 @media (max-width: 768px) {
