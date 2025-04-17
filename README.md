@@ -1,5 +1,5 @@
 # wedding_planner
-Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy.
+Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy
 
 ## Inhoudsopgave
 - [Installatie Instructies](#instructies)
@@ -10,19 +10,21 @@ Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy.
   - [Admin Features](#admin)
 
 ## Instructies:
-### 1. Clone dit op uw repository 
+### 1.1 Clone dit op jouw repository: 
 ```bash
 git clone https://github.com/GavinvdB/wedding_planner.git
 ```
-### 2. Vul dit in uw terminal/console:
+### 1.2 Je kan ook het zip.bestand downloaden, dan unzippen en openen in jouw editor:
+
+### 2. Vul dit in jouw terminal/console:
 ```bash
 cd wedding_planner
 ```
-### 3. Vul vervolgens dit in uw terminal om een environment te openen:
+### 3. Vul vervolgens dit in jouw terminal om een environment te openen:
 ```bash
 python -m venv venv
 ```
-### 4. Activeer vervolgens uw virtual environment:
+### 4. Activeer vervolgens jouw virtual environment:
 ```bash
 venv\Scripts\activate
 ```
@@ -30,11 +32,11 @@ venv\Scripts\activate
 ```bash
 pip install -r requirements.txt
 ```
-### 6. Eerst de database intializen met:
+### 6. Eerst de database initialiseren met:
 ```bash
 flask --app app.py db init
 ```
-### 7. Daarna migrate je de database naar de laatste versie:
+### 7. Daarna migreer je de database naar de laatste versie:
 ```bash
 flask --app app.py db migrate
 ```
@@ -42,12 +44,12 @@ flask --app app.py db migrate
 ```bash
 flask --app app.py db upgrade
 ```
-### 9. Run vervolgens seed.py of vul het onderstaande in uw terminal:
+### 9. Run vervolgens seed.py of vul het onderstaande in jouw terminal:
 ```bash
 python seed.py
 ```
-#### Er komt vervolgens een data.sqlite in uw wedding_planner map 
-### 10. Run vervolgens app.py of vul dit in uw terminal:
+#### Er komt vervolgens een data.sqlite in jouw wedding_planner map 
+### 10. Run vervolgens app.py of vul dit in jouw terminal:
 ```bash
 python app.py
 ```
