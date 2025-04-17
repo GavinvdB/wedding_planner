@@ -14,7 +14,7 @@ Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy
 ```bash
 git clone https://github.com/GavinvdB/wedding_planner.git
 ```
-### 1.2 Je kan ook het zip.bestand downloaden, dan unzippen en openen in jouw editor:
+### 1.2 Je kan ook het zip.bestand downloaden, dan unzippen en openen in jouw editor
 
 ### 2. Vul dit in jouw terminal/console:
 ```bash
