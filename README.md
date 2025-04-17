@@ -59,7 +59,7 @@ python app.py
 #### Password: admin
 
 ## Functionaliteiten:
-### No user
+### Guest
 - **Je kan een account aanmaken** via het login dropdown-menu in de navigatiebar
 - **Informatie over het bedrijf staat op verschillende pagina's** die via de navigatiebar zijn te vinden 
 - Je kan **gegevens invullen in een contactformulier**
