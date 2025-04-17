@@ -64,7 +64,7 @@ python app.py
 - **Informatie over het bedrijf staat op verschillende pagina's** die via de navigatiebar zijn te vinden 
 - Je kan **gegevens invullen in een contactformulier**
 ### User
-- Als je een **user** bent heb je een dashboard dat **alleen toegankelijk is als je ingelogd** bent
+- Als **user** heb je een dashboard dat **alleen toegankelijk is als je ingelogd** bent
 - Er is een navigatiebar die leidt **naar specifieke routes** zoals een dashboard
 ### Admin
 - Als **admin** heb je een dashboard dat **alleen toegankelijk is als je ingelogd** bent
