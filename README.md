@@ -2,8 +2,8 @@
 Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy.
 
 ## Inhoudsopgave
-- [Installation Instructions](#instructies)
-- [Admin Credentials](#admin-gegevens-voor-admin-specifieke-routes)
+- [Installatie Instructies](#instructies)
+- [Admin Inloggegevens](#admin-gegevens-voor-admin-specifieke-routes)
 - [Features](#functionaliteiten)
   - [Guest Features](#no-user)
   - [User Features](#user)
