@@ -64,9 +64,9 @@ python app.py
 - **Informatie over het bedrijf staat op verschillende pagina's** die via de navigatiebar zijn te vinden 
 - Je kan **gegevens invullen in een contactformulier**
 ### User
-- Als je een **user** bent heb je een moodboard en een to-do-list in een dashboard dat **alleen toegankelijk is als je ingelogd** bent
+- Als je een **user** bent heb je een dashboard dat **alleen toegankelijk is als je ingelogd** bent
 - Er is een navigatiebar die leidt **naar specifieke routes** zoals een dashboard
 ### Admin
-- Als **admin** heb je een moodboard en een to-do-list in een dashboard dat **alleen toegankelijk is als je ingelogd** bent
+- Als **admin** heb je een dashboard dat **alleen toegankelijk is als je ingelogd** bent
 - Als admin kan je gegevens van het contactformulier **inlezen en verwijderen**
 - Er is in de navigatiebar dropdown een optie die leidt naar **specifieke routes** zoals een dashboard en een database voor de contactformulieren
