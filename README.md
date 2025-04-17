@@ -61,4 +61,4 @@ python app.py
 ### Admin
 - Als **admin** heb je een moodboard en een to-do-list in een dashboard dat **alleen toegankelijk is als je ingelogd** bent
 - Als admin kan je gegevens van het contactformulier **inlezen en verwijderen**
-- Er is in de navigatiebar dropdown een optie die leidt naar **specifieke routes* zoals een dashboard en een database voor de contactformulieren
+- Er is in de navigatiebar dropdown een optie die leidt naar **specifieke routes** zoals een dashboard en een database voor de contactformulieren
