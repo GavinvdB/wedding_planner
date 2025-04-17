@@ -10,20 +10,22 @@ Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy
   - [Admin Features](#admin)
 
 ## Instructies:
-### 1.1 Clone dit op jouw repository: 
+## Optie A: Repository klonen
+### 1a Clone dit op jouw repository: 
 ```bash
 git clone https://github.com/GavinvdB/wedding_planner.git
 ```
-### 1.2 Je kan ook het zip.bestand downloaden, dan unzippen en openen in jouw editor
-
-### 2.1 Vul dit in jouw terminal/console als je 1.1 hebt gevolgd:
+### 2a Vul dit in jouw terminal/console:
 ```bash
 cd wedding_planner
 ```
-### 2.2 Vul dit in jouw terminal/console als je 1.2 hebt gevolgd:
+## Optie B: Zip.bestand downloaden
+### 1b Download het zip.bestand, dan unzippen en openen in jouw editor
+### 2b Vul dit in jouw terminal/console:
 ```bash
 cd wedding_planner-main
 ```
+## Volg vervolgens deze stappen
 ### 3. Vul vervolgens dit in jouw terminal om een environment te openen:
 ```bash
 python -m venv venv
