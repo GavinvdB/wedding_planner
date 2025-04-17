@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ### 6. Run vervolgens seed.py of vul het onderstaande in uw terminal:
 python seed.py
-### Er komt vervolgens een data.sqlite in uw wedding_planner map 
+#### Er komt vervolgens een data.sqlite in uw wedding_planner map 
 
 ### 7. Run vervolgens app.py of vul dit in uw terminal:
 python app.py
