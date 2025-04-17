@@ -23,6 +23,18 @@ p {
     font-size: 18px;
 }
 
+.dropdown-item:focus,
+.dropdown-item:active {
+    color: var(--text-light) !important;
+    background-color: var(--primary) !important;
+    outline: none !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: var(--light) !important;
+    color: var(--primary) !important;
+}
+
 .flash-messages {
     position: fixed;
     top: 0;
