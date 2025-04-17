@@ -28,7 +28,7 @@ cd wedding_planner
 cd wedding_planner-main
 ```
 ## Volg vervolgens deze stappen
-### 3. Vul vervolgens dit in jouw terminal om een environment te openen:
+### 3. Vul dit in jouw terminal om een environment te openen:
 ```bash
 python -m venv venv
 ```
