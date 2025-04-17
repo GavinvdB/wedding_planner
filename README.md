@@ -1,6 +1,14 @@
 # wedding_planner
 Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy.
 
+## Inhoudsopgave
+- [Installation Instructions](#instructies)
+- [Admin Credentials](#admin-gegevens-voor-admin-specifieke-routes)
+- [Features](#functionaliteiten)
+  - [Guest Features](#no-user)
+  - [User Features](#user)
+  - [Admin Features](#admin)
+
 ## Instructies:
 ### 1. Clone dit op uw repository 
 ```bash
