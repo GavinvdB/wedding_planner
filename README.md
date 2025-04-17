@@ -13,17 +13,17 @@ Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy
 
 ## Instructies:
 ## Optie A: Repository clonen
-### 1a Clone dit op jouw repository: 
+### 1a. Clone dit op jouw repository: 
 ```bash
 git clone https://github.com/GavinvdB/wedding_planner.git
 ```
-### 2a Vul dit in jouw terminal/console:
+### 2a. Vul dit in jouw terminal/console:
 ```bash
 cd wedding_planner
 ```
 ## Optie B: Zip.bestand downloaden
-### 1b Download het zip.bestand, dan unzippen en openen in jouw editor
-### 2b Vul dit in jouw terminal/console:
+### 1b. Download het zip.bestand, dan unzippen en openen in jouw editor
+### 2b. Vul dit in jouw terminal/console:
 ```bash
 cd wedding_planner-main
 ```
