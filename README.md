@@ -3,6 +3,8 @@ Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy
 
 ## Inhoudsopgave
 - [Installatie Instructies](#instructies)
+  - [Optie A](#1a-clone-dit-op-jouw-repository)
+  - [Optie B](#1b-download-het-zipbestand-dan-unzippen-en-openen-in-jouw-editor)
 - [Admin Inloggegevens](#admin-gegevens-voor-admin-specifieke-routes)
 - [Features](#functionaliteiten)
   - [Guest Features](#no-user)
@@ -10,7 +12,7 @@ Repo voor de Webtechnologie opdracht van Gavin en Anh-Thy
   - [Admin Features](#admin)
 
 ## Instructies:
-## Optie A: Repository klonen
+## Optie A: Repository clonen
 ### 1a Clone dit op jouw repository: 
 ```bash
 git clone https://github.com/GavinvdB/wedding_planner.git
