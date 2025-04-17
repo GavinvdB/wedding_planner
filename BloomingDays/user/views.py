@@ -96,7 +96,8 @@ def register():
         
         user = User(email=form.email.data,
                     username=form.username.data,
-                    password=form.password.data)
+                    password=form.password.data,
+                    is_admin=form.is_admin.data)
 
         try:
             db.session.add(user)
