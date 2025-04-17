@@ -4,6 +4,8 @@ from flask_login import login_user, login_required, logout_user, current_user
 from BloomingDays.admin.models import User, ContactDatabase
 from BloomingDays.forms import ListForm, VerwijderForm
 
+
+
 admin_blueprint = Blueprint('admin',
                              __name__,
                              template_folder='templates')
@@ -30,7 +32,11 @@ def logout():
 def database():
     #homepagina van de database dat alle afspraken laat zien.
     afspraken = ContactDatabase.query.all()
+    if not current_user.is_admin:
+        flash('You do not have permission to access this page.', 'danger')
+        return redirect(url_for('home'))
     return render_template("homeDB.html",afspraken=afspraken) 
+    
 
 @admin_blueprint.route('/homeDB')
 @login_required
@@ -41,9 +47,13 @@ def homeDB():
     return render_template('homeDB.html')
 
 @admin_blueprint.route("/dblist",methods=['GET', 'POST'])   
+@login_required
 def dblist():
     #Voer de ID van het formulier waarvan je meer over wilt weten op deze pagina.
     form = ListForm()
+    if not current_user.is_admin:
+        flash('You do not have permission to access this page.', 'danger')
+        return redirect(url_for('home'))
     
     if form.validate_on_submit():
         id = form.dbID.data
@@ -54,9 +64,14 @@ def dblist():
     return render_template("dblist.html", form=form) 
 
 @admin_blueprint.route("/delform", methods=['GET', 'POST'])
+@login_required
 def delform():
     #pagina om formulieren te verwijderen
     form = VerwijderForm()
+    if not current_user.is_admin:
+        flash('You do not have permission to access this page.', 'danger')
+        return redirect(url_for('home'))
+    
     if form.validate_on_submit():
         id = form.id.data
         formulier = ContactDatabase.query.get(id)
